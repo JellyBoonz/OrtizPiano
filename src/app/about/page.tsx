@@ -10,8 +10,9 @@ export default function About() {
                     <Image 
                         src="/jaiden.png"
                         alt="Jaiden - Professional Piano Tuner" 
-                        width={200} 
-                        height={200} 
+                        width={220} 
+                        height={220}
+                        unoptimized 
                         className="rounded-full" 
                     />
                 </div>
