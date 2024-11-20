@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -16,7 +17,7 @@ export default function Home() {
 
 function Header() {
   return (
-    <header className="py-16 bg-background">
+    <header className="py-16 mt-16 bg-background">
       <motion.h1 
         className="font-serif text-4xl md:text-5xl font-bold mb-6 text-accent"
         initial={{ opacity: 0, y: -20 }}

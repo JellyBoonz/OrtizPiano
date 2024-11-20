@@ -8,17 +8,19 @@ module.exports = {
     extend: {
       colors: {
         background: "#F8F6F1",
-        foreground: "#0c120c",
-        accent: "#0c120c",
-        secondary: "#0c120c",
-        subtle: "#1A1A1A",
-      },
-      fontFamily: {
-        'sans': ['ui-sans-serif', 'Roboto', 'sans-serif'],
-        'serif': ['ui-serif', '"Proxima Nova"', 'serif'], // Or Montserrat
-        'mono': ['ui-monospace', 'SFMono-Regular', 'monospace'],
-      }
+        backgroundDarker: "#E8E6DF", // Slightly darker tone
+      foreground: "#0c120c",
+      accent: "#0c120c",
+      secondary: "#0c120c",
+      subtle: "#1A1A1A",
+    },
+    fontFamily: {
+      'sans': ['ui-sans-serif', 'Roboto', 'sans-serif'],
+      'serif': ['ui-serif', '"Proxima Nova"', 'serif'],
+      'mono': ['ui-monospace', 'SFMono-Regular', 'monospace'],
     },
   },
+
+},
   plugins: [],
 }
