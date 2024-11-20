@@ -108,7 +108,7 @@ function ScheduleForm() {
               Schedule Your Piano Tune
             </h2>
             <p className="text-subtle text-center">
-              Let our expert technicians bring out the best in your instrument.
+              Once you submit, I&apos;ll reach out to you to get your tune scheduled!
             </p>
           </div>
 
