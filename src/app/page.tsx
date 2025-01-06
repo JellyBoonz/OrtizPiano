@@ -29,7 +29,7 @@ function Header() {
       <p className="font-serif text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-foreground">
         Providing expert piano tuning, pitch raising, cleaning, and minor repairs to keep your piano sounding its best.
       </p>
-      <Link href="/schedule">
+      <Link href="https://calendar.app.google/jzeoaGxGgY7PhW5Y9">
         <motion.button 
           className="bg-accent text-background px-8 py-3 rounded-full text-lg font-semibold hover:bg-secondary transition-colors"
           whileHover={{ scale: 1.05 }}

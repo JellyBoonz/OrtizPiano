@@ -56,56 +56,59 @@ function MobileNav() {
       {/* Navbar */}
       <div className="flex items-center justify-between p-4">
         <h1 className="text-xl font-bold text-accent">Ortiz Piano Tuning</h1>
-        <button
-          className="text-accent focus:outline-none"
-          onClick={toggleDrawer}
-        >
-          <span className="text-2xl">☰</span>
-        </button>
+        <div className="flex items-center space-x-4">
+          <Link href="https://calendar.app.google/jzeoaGxGgY7PhW5Y9" legacyBehavior>
+            <a className="text-md font-bold text-accent hover:text-secondary">Book Now</a>
+          </Link>
+          <button
+            className="text-accent focus:outline-none"
+            onClick={toggleDrawer}
+          >
+            <span className="text-2xl">☰</span>
+          </button>
+        </div>
       </div>
 
       {/* Drawer */}
-      {/* Drawer */}
-{isOpen && (
-  <motion.div
-    className="fixed top-0 right-0 w-64 h-full bg-backgroundDarker shadow-lg z-50"
-    initial={{ x: '100%' }}
-    animate={{ x: 0 }}
-    exit={{ x: '-100%' }}
-    transition={{ type: 'spring', stiffness: 100 }}
-  >
-    <div className="flex flex-col p-6 space-y-4 text-accent">
-      <button
-        className="text-accent self-end text-2xl focus:outline-none"
-        onClick={toggleDrawer}
-      >
-        ✕
-      </button>
-      <Link href="/" legacyBehavior>
-        <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
-          Home
-        </a>
-      </Link>
-      <Link href="/services" legacyBehavior>
-        <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
-          Services
-        </a>
-      </Link>
-      <Link href="/about" legacyBehavior>
-        <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
-          About Us
-        </a>
-      </Link>
-      <Link href="/schedule" legacyBehavior>
-        <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
-          Schedule
-        </a>
-      </Link>
-    </div>
-  </motion.div>
-)}
+      {isOpen && (
+        <motion.div
+          className="fixed top-0 right-0 w-64 h-full bg-backgroundDarker shadow-lg z-50"
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100%' }}
+          transition={{ type: 'spring', stiffness: 100 }}
+        >
+          <div className="flex flex-col p-6 space-y-4 text-accent">
+            <button
+              className="text-accent self-end text-2xl focus:outline-none"
+              onClick={toggleDrawer}
+            >
+              ✕
+            </button>
+            <Link href="/" legacyBehavior>
+              <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
+                Home
+              </a>
+            </Link>
+            <Link href="/services" legacyBehavior>
+              <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
+                Services
+              </a>
+            </Link>
+            <Link href="/about" legacyBehavior>
+              <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
+                About Us
+              </a>
+            </Link>
 
+            <Link href="https://calendar.app.google/jzeoaGxGgY7PhW5Y9" legacyBehavior>
+              <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
+                Book Now
+              </a>
+            </Link>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 }
-
