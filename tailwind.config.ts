@@ -7,20 +7,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#F8F6F1",
-        backgroundDarker: "#E8E6DF", // Slightly darker tone
-      foreground: "#0c120c",
-      accent: "#0c120c",
-      secondary: "#0c120c",
-      subtle: "#1A1A1A",
+        background: "#F0F7F4",
+        backgroundDarker: "#7E8D85", // Slightly darker tone
+        foreground: "#0c120c",
+        accent: "#A2E3C4",
+        secondary: "#0c120c",
+        subtle: "#B3BFB8",
+      },
+      fontFamily: {
+        'sans': ['ui-sans-serif', 'Roboto', 'sans-serif'],
+        'serif': ['ui-serif', '"Proxima Nova"', 'serif'],
+        'mono': ['ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
     },
-    fontFamily: {
-      'sans': ['ui-sans-serif', 'Roboto', 'sans-serif'],
-      'serif': ['ui-serif', '"Proxima Nova"', 'serif'],
-      'mono': ['ui-monospace', 'SFMono-Regular', 'monospace'],
-    },
-  },
 
-},
+  },
   plugins: [],
 }

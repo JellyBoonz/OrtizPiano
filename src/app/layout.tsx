@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { ReactNode, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -47,23 +47,25 @@ function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleDrawer() {
-    setIsOpen(!isOpen); // Only handle state changes; don't prevent default behavior.
+    setIsOpen(!isOpen);
   }
-  
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-background z-50 shadow-md">
+    <div className="fixed top-0 left-0 w-full bg-backgroundDarker z-50 shadow-md border-b border-subtle">
       {/* Navbar */}
       <div className="flex items-center justify-between p-4">
-        <h1 className="text-xl font-bold text-accent">Ortiz Piano Tuning</h1>
+        <h1 className="text-xl font-bold text-secondary font-serif">Ortiz Piano Tuning</h1>
         <div className="flex items-center space-x-4">
           <Link href="https://calendar.app.google/jzeoaGxGgY7PhW5Y9" legacyBehavior>
-            <a className="text-md font-bold text-accent hover:text-secondary">Book Now</a>
+            <motion.button
+              className="bg-accent text-secondary px-4 py-3 rounded-full text-sm font-semibold hover:bg-secondary transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Book Now
+            </motion.button>
           </Link>
-          <button
-            className="text-accent focus:outline-none"
-            onClick={toggleDrawer}
-          >
+          <button className="text-secondary focus:outline-none" onClick={toggleDrawer}>
             <span className="text-2xl">☰</span>
           </button>
         </div>
@@ -76,11 +78,11 @@ function MobileNav() {
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '-100%' }}
-          transition={{ type: 'spring', stiffness: 100 }}
+          transition={{ type: 'tween', stiffness: 70 }}
         >
-          <div className="flex flex-col p-6 space-y-4 text-accent">
+          <div className="flex flex-col p-6 space-y-4 text-background">
             <button
-              className="text-accent self-end text-2xl focus:outline-none"
+              className="text-background self-end text-2xl focus:outline-none"
               onClick={toggleDrawer}
             >
               ✕
@@ -100,7 +102,6 @@ function MobileNav() {
                 About Us
               </a>
             </Link>
-
             <Link href="https://calendar.app.google/jzeoaGxGgY7PhW5Y9" legacyBehavior>
               <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
                 Book Now

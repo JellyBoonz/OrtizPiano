@@ -2,17 +2,14 @@ export default function Services() {
   const services = [
       { 
           name: 'Piano Tuning', 
-          price: '$150', 
           description: 'Fine-tuning your piano to ensure optimal sound quality.' 
       },
       { 
           name: 'Tuning + Pitch Raise', 
-          price: '$200', 
           description: 'Adjusting the overall pitch when your piano is significantly out of tune.' 
       },
       { 
           name: 'Tuning + Cleaning', 
-          price: '$200', 
           description: 'Thoroughly cleaning the piano to maintain its appearance and functionality.' 
       },
   ];
@@ -29,9 +26,6 @@ export default function Services() {
                       <div className="flex-1">
                           <h2 className="font-semibold text-lg">{service.name}</h2>
                           <p className="text-sm text-gray-600">{service.description}</p>
-                      </div>
-                      <div className="text-accent font-medium mt-2 md:mt-0">
-                          {service.price}
                       </div>
                   </li>
               ))}
