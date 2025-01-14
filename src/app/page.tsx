@@ -25,6 +25,7 @@ function Header() {
           alt="Ortiz Piano Tuning Logo"
           width={600}
           height={600}
+          unoptimized={true} 
         />
       </div>
       <motion.h1 
