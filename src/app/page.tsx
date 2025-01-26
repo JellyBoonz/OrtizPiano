@@ -118,13 +118,13 @@ function CallToAction() {
   return (
     <section className="py-16 bg-background">
       <h2 className="text-3xl font-bold mb-8">Keep Your Piano in Perfect Harmony</h2>
-      <Link href="/schedule">
+      <Link href="tel:6162290630">
         <motion.button 
           className="bg-accent text-secondary px-8 py-3 rounded-full text-lg font-semibold hover:bg-secondary transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Book a Tune
+          Call Now
         </motion.button>
       </Link>
     </section>
