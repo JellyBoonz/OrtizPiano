@@ -37,17 +37,9 @@ function Header() {
         Ortiz Professional Piano Care
       </motion.h1>
       <p className="font-serif text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-foreground">
-        Seasoned Piano technician offering expert <strong>tuning</strong>, <strong>repairs</strong>, and <strong>maintenance</strong> services in Greater Grand Rapids.
+      Seasoned Piano Technician offering expert <strong>tuning</strong>, <strong>repairs</strong>, and <strong>maintenance</strong> services in Greater Grand Rapids.
       </p>
-      <Link href="https://calendar.app.google/jzeoaGxGgY7PhW5Y9">
-        <motion.button 
-          className="bg-accent text-secondary px-8 py-3 rounded-full text-lg font-semibold hover:bg-secondary transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Schedule a Tuning
-        </motion.button>
-      </Link>
+     
     </header>
   );
 }
@@ -108,7 +100,7 @@ function AboutUs() {
     <section className="py-16">
       <h2 className="text-3xl font-bold mb-8">About Ortiz Piano Tuning</h2>
       <p className="font-serif text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-foreground">
-        Seasoned Piano technician offering expert <strong>tuning</strong>, <strong>repairs</strong>, and <strong>maintenance</strong> services in Greater Grand Rapids.
+      Dedicated to precision and quality, Ortiz Piano Tuning ensures your piano sounds its best with expert <strong>tuning</strong>, <strong>repairs</strong>, and <strong>maintenance</strong>. Serving musicians, educators, and piano owners across West Michigan with reliable, professional service.
       </p>
     </section>
   );

@@ -117,16 +117,6 @@ function MobileNav() {
                   Call Now
                 </motion.button>
               </Link>
-              <p className="text-lg text-background">or</p>
-              <Link href="https://calendar.app.google/jzeoaGxGgY7PhW5Y9" legacyBehavior>
-                <motion.button
-                  className="bg-accent text-secondary px-4 py-3 rounded-full text-sm font-semibold hover:bg-secondary transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Schedule Tune
-                </motion.button>
-              </Link>
             </div>
           </div>
         </motion.div>
