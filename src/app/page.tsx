@@ -3,12 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import Head from 'next/head';
 
 export default function Home() {
   return (
     <div className="text-center">
-      <SEOHead />
       <Header />
       <Services />
       <ServiceAreas />
@@ -16,18 +14,6 @@ export default function Home() {
       <AboutUs />
       <CallToAction />
     </div>
-  );
-}
-
-function SEOHead() {
-  return (
-    <Head>
-      <title>Ortiz Piano Tuning | Professional Piano Tuning in Grand Rapids</title>
-      <meta name="description" content="Ortiz Piano Tuning offers expert piano tuning, pitch raises, cleaning, and minor repairs in Grand Rapids, MI. Trusted by musicians, teachers, and families." />
-      <meta name="keywords" content="piano tuning Grand Rapids, piano repair Grand Rapids, piano technician, pitch raise, piano cleaning, piano maintenance, Michigan piano services" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="robots" content="index, follow" />
-    </Head>
   );
 }
 

@@ -6,6 +6,7 @@ import Script from "next/script";
 import Link from "next/link";
 import "./globals.css";
 import { motion } from "framer-motion";
+import Head from "next/head"; // Import Head for metadata
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -15,6 +16,60 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="min-h-screen bg-background text-foreground">
+        <Head>
+          <title>Ortiz Piano Tuning | Professional Piano Tuning in Grand Rapids</title>
+          <meta
+            name="description"
+            content="Ortiz Piano Tuning offers expert piano tuning, piano tuner, pitch raises, cleaning, and minor repairs in Grand Rapids, MI. Trusted by musicians, teachers, and families."
+          />
+          <meta
+            name="keywords"
+            content="piano tuning Grand Rapids, piano repair Grand Rapids, piano technician, pitch raise, piano cleaning, piano maintenance, Michigan piano services, Piano Tuner"
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="robots" content="index, follow" />
+          {/* Open Graph Metadata */}
+          <meta property="og:title" content="Ortiz Piano Tuning" />
+          <meta
+            property="og:description"
+            content="Professional piano tuning and repair in Grand Rapids, MI."
+          />
+          <meta property="og:url" content="https://ortizpiano.com" />
+          <meta property="og:site_name" content="Ortiz Piano Tuning" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:type" content="website" />
+          <script
+        id="ld-json"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Ortiz Piano Tuning",
+            "telephone": "+1-616-229-0630",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Grand Rapids",
+              "addressRegion": "MI",
+              "postalCode": "49503",
+              "addressCountry": "US"
+            },
+            "url": "https://ortizpiano.com",
+            "description": "Ortiz Piano Tuning offers professional piano tuning, pitch raises, and minor repairs in Grand Rapids, Michigan.",
+            "priceRange": "$$",
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+              }
+            ]
+          }),
+        }}
+      />
+        </Head>
+
         {shouldIncludeScript && (
           <>
             <Script
