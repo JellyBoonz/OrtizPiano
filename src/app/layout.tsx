@@ -54,7 +54,7 @@ function MobileNav() {
     <div className="fixed top-0 left-0 w-full bg-backgroundDarker z-50 shadow-md border-b border-subtle">
       {/* Navbar */}
       <div className="flex items-center justify-between p-4">
-        <h1 className="text-xl font-bold text-secondary font-serif">
+        <h1 className="text-xl font-bold text-background font-serif">
           Ortiz Piano Tuning
         </h1>
         <div className="flex items-center space-x-4">
@@ -68,7 +68,7 @@ function MobileNav() {
             </motion.button>
           </Link>
           <button
-            className="text-secondary focus:outline-none"
+            className="text-background focus:outline-none"
             onClick={toggleDrawer}
           >
             <span className="text-2xl">☰</span>
