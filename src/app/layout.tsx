@@ -38,7 +38,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <meta property="og:site_name" content="Ortiz Piano Tuning" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:type" content="website" />
-          <script
+        </Head>
+
+        {shouldIncludeScript && (
+          <>
+            <Script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=AW-16763613402"
+            />
+            <Script id="google-tag">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'AW-16763613402');
+              `}
+            </Script>
+            <Script
         id="ld-json"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -68,22 +84,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }),
         }}
       />
-        </Head>
-
-        {shouldIncludeScript && (
-          <>
-            <Script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=AW-16763613402"
-            />
-            <Script id="google-tag">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'AW-16763613402');
-              `}
-            </Script>
           </>
         )}
         <div>
