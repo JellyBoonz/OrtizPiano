@@ -52,6 +52,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 gtag('config', 'AW-16763613402');
               `}
             </Script>
+            <Script id="gtag-config">{`
+              gtag('config', 'AW-16763613402/QmInCPGvvLgaENrhwbk-', {
+                'phone_conversion_number': '(616) 229-0630'
+              });
+            `}</Script>
+
             <Script
               id="ld-json"
               type="application/ld+json"
