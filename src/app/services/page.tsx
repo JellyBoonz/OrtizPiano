@@ -27,7 +27,7 @@ export default function Services() {
       name: 'Minor Repairs',
       description: 'Expert repair service for common piano issues including sticky keys, loose strings, and other minor mechanical problems.',
       icon: '🔧',
-      price: 'Starting at $100'
+      price: 'Starting at $50'
     }
   ];
 
