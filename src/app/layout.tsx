@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-
   const shouldIncludeScript = pathname === "/" || pathname === "/schedule";
 
   return (
@@ -20,6 +19,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           name="description"
           content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Serving musicians, teachers, and families since 2019. Call (616) 229-0630 for a free consultation."
         />
+        {/* Preload critical resources */}
+        <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/your-font-bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        
+        {/* Move non-critical meta tags after preload */}
         <meta
           name="keywords"
           content="piano tuning Grand Rapids, piano repair Grand Rapids, piano technician, pitch raise, piano cleaning, piano maintenance, Michigan piano services, Piano Tuner, Ortiz Piano Tuning, professional piano tuning, piano service Grand Rapids, piano tuning near me, piano tuner near me, piano maintenance Grand Rapids, piano technician Grand Rapids, piano service Michigan"
@@ -32,7 +40,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="geo.position" content="42.9634;-85.6681" />
         <meta name="ICBM" content="42.9634, -85.6681" />
         <link rel="canonical" href="https://ortizpiano.com" />
-        {/* Open Graph Metadata */}
+        
+        {/* Open Graph and Twitter Card meta tags */}
         <meta property="og:title" content="Ortiz Piano Tuning | Professional Piano Services in Grand Rapids" />
         <meta
           property="og:description"
@@ -46,14 +55,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta property="og:image:alt" content="Professional Piano Tuning Services in Grand Rapids, MI" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ortiz Piano Tuning | Professional Piano Services in Grand Rapids" />
         <meta name="twitter:description" content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Call (616) 229-0630 for a free consultation." />
         <meta name="twitter:image" content="https://ortizpiano.com/piano.webp" />
         <meta name="twitter:site" content="@ortizpiano" />
         <meta name="twitter:creator" content="@ortizpiano" />
-        {/* Additional SEO Meta Tags */}
+        
+        {/* Additional meta tags */}
         <meta name="format-detection" content="telephone=yes" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -72,8 +81,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Script
               async
               src="https://www.googletagmanager.com/gtag/js?id=AW-16763613402"
+              strategy="afterInteractive"
             />
-            <Script id="google-tag">
+            <Script id="google-tag" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -81,7 +91,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 gtag('config', 'AW-16763613402');
               `}
             </Script>
-            <Script id="gtag-config">{`
+            <Script id="gtag-config" strategy="afterInteractive">{`
               gtag('config', 'AW-16763613402/QmInCPGvvLgaENrhwbk-', {
                 'phone_conversion_number': '(616) 229-0630'
               });
@@ -90,6 +100,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Script
               id="ld-json"
               type="application/ld+json"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: JSON.stringify({
                   "@context": "https://schema.org",
@@ -149,7 +160,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     "bestRating": "5",
                     "worstRating": "1"
                   },
-              
                   "makesOffer": [
                     {
                       "@type": "Offer",
@@ -188,6 +198,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Script
               id="ld-json-breadcrumb"
               type="application/ld+json"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: JSON.stringify({
                   "@context": "https://schema.org",
