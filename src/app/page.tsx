@@ -26,7 +26,7 @@ function Header() {
           alt="Ortiz Piano Tuning Logo - Grand Rapids Piano Services"
           width={600}
           height={600}
-          unoptimized={true}
+          priority={true}
           className="rounded-lg shadow-xl"
         />
       </div>
