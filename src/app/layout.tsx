@@ -15,27 +15,41 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>Ortiz Piano Tuning | Professional Piano Tuning in Grand Rapids</title>
+        <title>Ortiz Piano Tuning | Professional Piano Tuning & Repair in Grand Rapids, MI</title>
         <meta
           name="description"
-          content="Ortiz Piano Tuning offers expert piano tuning, piano tuner, pitch raises, cleaning, and minor repairs in Grand Rapids, MI. Trusted by musicians, teachers, and families."
+          content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Serving musicians, teachers, and families since 2019."
         />
         <meta
           name="keywords"
-          content="piano tuning Grand Rapids, piano repair Grand Rapids, piano technician, pitch raise, piano cleaning, piano maintenance, Michigan piano services, Piano Tuner"
+          content="piano tuning Grand Rapids, piano repair Grand Rapids, piano technician, pitch raise, piano cleaning, piano maintenance, Michigan piano services, Piano Tuner, Ortiz Piano Tuning, professional piano tuning, piano service Grand Rapids"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
+        <meta name="author" content="Ortiz Piano Tuning" />
+        <meta name="geo.region" content="US-MI" />
+        <meta name="geo.placename" content="Grand Rapids" />
+        <meta name="geo.position" content="42.9634;-85.6681" />
+        <meta name="ICBM" content="42.9634, -85.6681" />
         {/* Open Graph Metadata */}
-        <meta property="og:title" content="Ortiz Piano Tuning" />
+        <meta property="og:title" content="Ortiz Piano Tuning | Professional Piano Services in Grand Rapids" />
         <meta
           property="og:description"
-          content="Professional piano tuning and repair in Grand Rapids, MI."
+          content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs."
         />
         <meta property="og:url" content="https://ortizpiano.com" />
         <meta property="og:site_name" content="Ortiz Piano Tuning" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://ortizpiano.com/piano.webp" />
+        <meta property="og:image:alt" content="Professional Piano Tuning Services" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ortiz Piano Tuning | Professional Piano Services" />
+        <meta name="twitter:description" content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs." />
+        <meta name="twitter:image" content="https://ortizpiano.com/piano.webp" />
       </head>
       <body className="min-h-screen bg-background text-foreground">
         {shouldIncludeScript && (
