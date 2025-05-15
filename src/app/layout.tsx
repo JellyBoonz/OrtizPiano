@@ -92,6 +92,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 'phone_conversion_number': '(616) 229-0630'
               });
             `}</Script>
+            <Script id="clean-url">
+              {`
+                if (typeof window !== 'undefined') {
+                  const cleanUrl = () => {
+                    const url = new URL(window.location.href);
+                    if (url.searchParams.has('gclid')) {
+                      url.searchParams.delete('gclid');
+                      window.history.replaceState({}, '', url.toString());
+                    }
+                  };
+                  // Run on initial load
+                  cleanUrl();
+                  // Run on route changes
+                  window.addEventListener('popstate', cleanUrl);
+                }
+              `}
+            </Script>
 
             <Script
               id="ld-json"
