@@ -60,7 +60,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="mobile-web-app-title" content="Ortiz Piano Tuning" />
         <meta name="apple-mobile-web-app-title" content="Ortiz Piano Tuning" />
-        <link rel="icon" href="https://ortizpiano.com/piano.webp" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/piano.webp" type="image/webp" />
         <link rel="apple-touch-icon" href="/piano.webp" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffffff" />
