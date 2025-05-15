@@ -65,10 +65,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="mobile-web-app-title" content="Ortiz Piano Tuning" />
         <meta name="apple-mobile-web-app-title" content="Ortiz Piano Tuning" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/piano.webp" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="icon" href="https://ortizpiano.com/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="https://ortizpiano.com/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="https://ortizpiano.com/favicon.ico" />
+        <link rel="manifest" href="https://ortizpiano.com/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
@@ -92,34 +92,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 'phone_conversion_number': '(616) 229-0630'
               });
             `}</Script>
-            <Script id="clean-url">
-              {`
-                (function() {
-                  try {
-                    if (typeof window !== 'undefined') {
-                      const cleanUrl = () => {
-                        try {
-                          const url = new URL(window.location.href);
-                          if (url.searchParams.has('gclid')) {
-                            url.searchParams.delete('gclid');
-                            window.history.replaceState({}, '', url.toString());
-                          }
-                        } catch (e) {
-                          console.error('Error cleaning URL:', e);
-                        }
-                      };
-                      // Run on initial load
-                      cleanUrl();
-                      // Run on route changes
-                      window.addEventListener('popstate', cleanUrl);
-                    }
-                  } catch (e) {
-                    console.error('Error in URL cleaning script:', e);
-                  }
-                })();
-              `}
-            </Script>
-
             <Script
               id="ld-json"
               type="application/ld+json"
