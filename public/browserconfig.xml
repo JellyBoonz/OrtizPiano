@@ -2,7 +2,7 @@
 <browserconfig>
   <msapplication>
     <tile>
-      <square150x150logo src="/favicon.ico"/>
+      <square150x150logo src="https://ortizpiano.com/favicon.ico"/>
       <TileColor>#ffffff</TileColor>
     </tile>
   </msapplication>
