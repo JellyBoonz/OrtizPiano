@@ -1,7 +1,7 @@
 {
     "name": "Ortiz Piano Tuning",
     "short_name": "Ortiz Piano",
-    "description": "Professional piano tuning and repair services in Grand Rapids, MI",
+    "description": "Professional piano tuning and repair services",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
