@@ -15,14 +15,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>Ortiz Piano Tuning | Professional Piano Tuning & Repair in Grand Rapids, MI</title>
+        <title>Ortiz Piano Tuning | Professional Piano Tuning & Repair</title>
         <meta
           name="description"
           content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Serving musicians, teachers, and families since 2019. Call (616) 229-0630 for a free consultation."
         />
         <meta
           name="keywords"
-          content="piano tuning Grand Rapids, piano repair Grand Rapids, piano technician, pitch raise, piano cleaning, piano maintenance, Michigan piano services, Piano Tuner, Ortiz Piano Tuning, professional piano tuning, piano service Grand Rapids, piano tuning near me, piano tuner near me, piano maintenance Grand Rapids, piano technician Grand Rapids, piano service Michigan"
+          content="piano tuning Grand Rapids, piano repair Grand Rapids, piano technician, pitch raise, piano cleaning, piano maintenance, Michigan piano services, Piano Tuner, Ortiz Piano Tuning, professional piano tuning, piano service Grand Rapids, piano tuning near me, piano tuner near me, piano maintenance Grand Rapids, piano technician Grand Rapids, piano service Michigan, local piano tuner, best piano tuner Grand Rapids, certified piano technician, piano tuning service near me, piano tuning Grand Rapids MI, piano tuner Grand Rapids Michigan"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -31,6 +31,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="geo.placename" content="Grand Rapids" />
         <meta name="geo.position" content="42.9634;-85.6681" />
         <meta name="ICBM" content="42.9634, -85.6681" />
+        <meta name="location" content="Grand Rapids, Michigan" />
+        <meta name="service-area" content="Grand Rapids, Kent County, Ottawa County, West Michigan" />
+        <meta name="local-business" content="piano tuning service" />
+        <meta name="business-type" content="piano technician" />
+        <meta name="service-type" content="piano tuning and repair" />
         <link rel="canonical" href="https://ortizpiano.com" />
         {/* Open Graph Metadata */}
         <meta property="og:title" content="Ortiz Piano Tuning | Professional Piano Services in Grand Rapids" />
@@ -61,7 +66,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="mobile-web-app-title" content="Ortiz Piano Tuning" />
         <meta name="apple-mobile-web-app-title" content="Ortiz Piano Tuning" />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="icon" href="/piano.webp" type="image/webp" />
         <link rel="apple-touch-icon" href="/piano.webp" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffffff" />
