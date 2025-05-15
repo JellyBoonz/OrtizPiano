@@ -94,19 +94,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             `}</Script>
             <Script id="clean-url">
               {`
-                if (typeof window !== 'undefined') {
-                  const cleanUrl = () => {
-                    const url = new URL(window.location.href);
-                    if (url.searchParams.has('gclid')) {
-                      url.searchParams.delete('gclid');
-                      window.history.replaceState({}, '', url.toString());
+                (function() {
+                  try {
+                    if (typeof window !== 'undefined') {
+                      const cleanUrl = () => {
+                        try {
+                          const url = new URL(window.location.href);
+                          if (url.searchParams.has('gclid')) {
+                            url.searchParams.delete('gclid');
+                            window.history.replaceState({}, '', url.toString());
+                          }
+                        } catch (e) {
+                          console.error('Error cleaning URL:', e);
+                        }
+                      };
+                      // Run on initial load
+                      cleanUrl();
+                      // Run on route changes
+                      window.addEventListener('popstate', cleanUrl);
                     }
-                  };
-                  // Run on initial load
-                  cleanUrl();
-                  // Run on route changes
-                  window.addEventListener('popstate', cleanUrl);
-                }
+                  } catch (e) {
+                    console.error('Error in URL cleaning script:', e);
+                  }
+                })();
               `}
             </Script>
 
