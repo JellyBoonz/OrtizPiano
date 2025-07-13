@@ -51,7 +51,7 @@ export default function About() {
                         >
                             <div className="prose prose-lg max-w-none">
                                 <p className="text-lg text-foreground/80 mb-6">
-                                    My name is Jaiden, and I am a professional piano tuner with over 5 years of experience 
+                                    My name is Jaiden, and I am a professional piano tuner with over 8 years of experience 
                                     helping musicians and music lovers maintain the sound quality of their pianos. I am passionate 
                                     about delivering high-quality service to ensure your piano sounds its best.
                                 </p>

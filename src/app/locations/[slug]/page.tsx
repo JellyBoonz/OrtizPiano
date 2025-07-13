@@ -26,7 +26,7 @@ const locations = {
       {
         type: "list",
         items: [
-          "Local expertise with over 5 years of service",
+          "Local expertise with over 8 years of service",
           "Quick response times throughout the city",
           "Knowledge of local climate conditions",
           "Flexible scheduling options"

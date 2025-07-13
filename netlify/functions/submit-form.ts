@@ -16,13 +16,13 @@ const handler: Handler = async (event) => {
             throw new Error('No data provided');
         }
 
-        const { email, phone, preferredDays, preferredTime } = JSON.parse(event.body);
+        const { name, email, phone, serviceType, preferredDate, message } = JSON.parse(event.body);
 
         // Validate required fields
-        if (!email || !phone || !preferredDays || !preferredTime) {
+        if (!name || !email || !phone || !serviceType) {
             return {
                 statusCode: 400,
-                body: JSON.stringify({ error: 'All fields are required.' }),
+                body: JSON.stringify({ error: 'Name, email, phone, and service type are required.' }),
             };
         }
 
@@ -39,16 +39,18 @@ const handler: Handler = async (event) => {
         const mailOptions = {
             from: process.env.EMAIL_USERNAME,
             to: process.env.EMAIL_USERNAME,
-            subject: 'New Piano Tuning Request',
-            text: `New Piano Tuning Request Details:
+            subject: `New Piano Service Request - ${serviceType}`,
+            text: `New Piano Service Request Details:
 
-            Email: ${email}
-            Phone: ${phone}
-            Preferred Days: ${preferredDays.join(', ')}
-            Preferred Time: ${preferredTime}
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service Type: ${serviceType}
+Preferred Date: ${preferredDate || 'Not specified'}
+Additional Message: ${message || 'None'}
 
-            Submitted on: ${new Date().toLocaleString()}
-                `,
+Submitted on: ${new Date().toLocaleString()}
+            `,
         };
 
         // Send email

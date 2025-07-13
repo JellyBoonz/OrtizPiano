@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import { Music4 } from 'lucide-react';
 
 interface FormState {
+  name: string;
   email: string;
   phone: string;
   preferredDays: string[];
@@ -11,6 +12,7 @@ interface FormState {
 
 function ScheduleForm() {
   const [formState, setFormState] = useState<FormState>({
+    name: '',
     email: '',
     phone: '',
     preferredDays: [],
@@ -24,6 +26,7 @@ function ScheduleForm() {
 
   const isFormValid = useMemo(() => {
     return (
+      formState.name.trim() !== '' &&
       formState.email.trim() !== '' &&
       formState.phone.trim() !== '' &&
       formState.preferredDays.length > 0 &&
@@ -48,10 +51,12 @@ function ScheduleForm() {
     setSubmitStatus({ type: null, message: '' });
 
     const formData = {
+      name: formState.name,
       email: formState.email,
       phone: formState.phone,
-      preferredDays: formState.preferredDays,
-      preferredTime: formState.preferredTime,
+      serviceType: 'piano-tuning',
+      preferredDate: `${formState.preferredDays.join(', ')} - ${formState.preferredTime}`,
+      message: `Preferred days: ${formState.preferredDays.join(', ')}. Preferred time: ${formState.preferredTime}.`
     };
 
     try {
@@ -80,6 +85,7 @@ function ScheduleForm() {
           message: 'Your request has been submitted! We will contact you soon.',
         });
         setFormState({
+          name: '',
           email: '',
           phone: '',
           preferredDays: [],
@@ -130,6 +136,19 @@ function ScheduleForm() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-4">
+                <label className="block">
+                  <span className="text-foreground font-medium mb-1 block">Name:</span>
+                  <input
+                    type="text"
+                    value={formState.name}
+                    onChange={(e) => 
+                      setFormState((prev) => ({ ...prev, name: e.target.value }))}
+                    placeholder="Enter your name"
+                    className="w-full px-4 py-2 rounded-lg border border-secondary border-opacity-20 focus:ring-2 focus:ring-accent focus:ring-opacity-50 focus:border-transparent transition bg-background"
+                    required
+                  />
+                </label>
+
                 <label className="block">
                   <span className="text-foreground font-medium mb-1 block">Email:</span>
                   <input
