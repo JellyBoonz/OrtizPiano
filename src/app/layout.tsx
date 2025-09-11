@@ -93,6 +93,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               });
             `}</Script>
             <Script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-T49HW9K05X"
+            />
+            <Script id="google-analytics">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-T49HW9K05X');
+              `}
+            </Script>
+            <Script
               id="ld-json"
               type="application/ld+json"
               dangerouslySetInnerHTML={{
