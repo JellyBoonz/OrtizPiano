@@ -136,7 +136,7 @@ export default function GrandRapidsLandingPage() {
                   <span className="text-accent text-lg mr-2">{testimonial.rating}</span>
                   <span className="text-secondary font-semibold">{testimonial.name}</span>
                 </div>
-                <p className="text-foreground italic">"{testimonial.text}"</p>
+                <p className="text-foreground italic">&quot;{testimonial.text}&quot;</p>
               </motion.div>
             ))}
           </div>
@@ -156,7 +156,7 @@ export default function GrandRapidsLandingPage() {
               Tune Accuracy Guarantee
             </h2>
             <p className="text-lg text-foreground max-w-2xl mx-auto">
-              If your piano does not hold pitch as expected, we'll make it right. Your satisfaction and sound quality are guaranteed.
+              If your piano does not hold pitch as expected, we&apos;ll make it right. Your satisfaction and sound quality are guaranteed.
             </p>
           </motion.div>
         </div>
@@ -212,7 +212,7 @@ export default function GrandRapidsLandingPage() {
               Limited Appointments Available This Week
             </h2>
             <p className="text-lg text-foreground mb-8">
-              Don't wait – secure your piano tuning appointment today
+              Don&apos;t wait – secure your piano tuning appointment today
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link href="/#contact-section">
