@@ -11,6 +11,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   const shouldIncludeScript = pathname === "/" || pathname === "/schedule";
+  const isLandingPage = pathname === "/grand-rapids-piano-tuning";
 
   return (
     <html lang="en">
@@ -240,12 +241,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </>
         )}
         <div>
-          <MobileNav />
-          <DesktopNav />
-          <main className="flex flex-col items-center p-10">{children}</main>
-          <footer className="p-5 text-center border-t border-subtle">
-            <p className="text-secondary">© 2024 Ortiz Piano Tuning</p>
-          </footer>
+          {!isLandingPage && (
+            <>
+              <MobileNav />
+              <DesktopNav />
+            </>
+          )}
+          <main className={isLandingPage ? "" : "flex flex-col items-center p-10"}>{children}</main>
+          {!isLandingPage && (
+            <footer className="p-5 text-center border-t border-subtle">
+              <p className="text-secondary">© 2024 Ortiz Piano Tuning</p>
+            </footer>
+          )}
         </div>
       </body>
     </html>

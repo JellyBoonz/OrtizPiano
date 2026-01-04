@@ -121,18 +121,40 @@ function TrustSection() {
             <h3 className="text-xl font-semibold mb-4 text-secondary text-center">Customer Testimonials</h3>
             <div className="space-y-4">
               <div className="text-left">
+                <div className="flex items-center mb-2">
+                  <span className="text-accent text-lg mr-2">★★★★★</span>
+                  <span className="text-accent font-medium">Sandy Chinavare</span>
+                </div>
                 <p className="text-foreground italic mb-2">
-                  &quot;Excellent service! My piano sounds amazing after the tuning. 
-                  Professional, on-time, and very thorough.&quot;
+                  &quot;Jaiden was very professional and polite. He communicated promptly and i was able to get my piano tuned quickly! I would definitely recommend him!&quot;
                 </p>
-                <p className="text-accent font-medium">- Sarah M., Grand Rapids</p>
               </div>
               <div className="text-left">
+                <div className="flex items-center mb-2">
+                  <span className="text-accent text-lg mr-2">★★★★★</span>
+                  <span className="text-accent font-medium">Qiaorong Wang</span>
+                </div>
                 <p className="text-foreground italic mb-2">
-                  &quot;Highly recommend! Fair pricing and my piano has never sounded better. 
-                  Will definitely call again.&quot;
+                  &quot;I had a great experience with Ortiz! He is a very professional and warm hearted person. He tuned very carefully in each key. Recommended him to anyone who needs!&quot;
                 </p>
-                <p className="text-accent font-medium">- Michael R., Holland</p>
+              </div>
+              <div className="text-left">
+                <div className="flex items-center mb-2">
+                  <span className="text-accent text-lg mr-2">★★★★★</span>
+                  <span className="text-accent font-medium">Tony Benac</span>
+                </div>
+                <p className="text-foreground italic mb-2">
+                  &quot;Prompt, friendly service, and our piano sounds great! Thanks!&quot;
+                </p>
+              </div>
+              <div className="text-left">
+                <div className="flex items-center mb-2">
+                  <span className="text-accent text-lg mr-2">★★★★★</span>
+                  <span className="text-accent font-medium">Robin Ward</span>
+                </div>
+                <p className="text-foreground italic mb-2">
+                  &quot;Jaiden did a great job. He was quick to return texts, timely, and clear with what the process involved. Reasonable price. Our piano sounds better than ever!&quot;
+                </p>
               </div>
             </div>
           </motion.div>
