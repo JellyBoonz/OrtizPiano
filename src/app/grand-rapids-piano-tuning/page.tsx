@@ -81,7 +81,7 @@ export default function GrandRapidsLandingPage() {
               Grand Rapids Piano Tuning – Book Today (Limited Availability)
             </h1>
             <h2 className="text-xl md:text-2xl mb-8 text-foreground max-w-3xl mx-auto">
-              Professional tuner with 8 years experience • Free check-up when you book now
+              Professional who&apos;s tuned 1000+ pianos • Free check-up when you book now
             </h2>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
