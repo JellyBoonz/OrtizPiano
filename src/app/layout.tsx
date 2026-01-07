@@ -72,6 +72,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="manifest" href="https://ortizpiano.com/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+        {/* Google Analytics - Site-wide tracking */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-T49HW9K05X"
+        />
+        <Script id="google-analytics-sitewide">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-T49HW9K05X');
+          `}
+        </Script>
       </head>
       <body className="min-h-screen bg-background text-foreground">
         {shouldIncludeScript && (
@@ -93,18 +106,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 'phone_conversion_number': '(616) 229-0630'
               });
             `}</Script>
-            <Script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=G-T49HW9K05X"
-            />
-            <Script id="google-analytics">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-T49HW9K05X');
-              `}
-            </Script>
             <Script
               id="ld-json"
               type="application/ld+json"
