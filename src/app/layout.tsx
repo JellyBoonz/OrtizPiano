@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <title>Ortiz Piano Tuning | Professional Piano Tuning & Repair</title>
         <meta
           name="description"
-          content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Serving musicians, teachers, and families since 2019. Call (616) 229-0630 for a free consultation."
+          content="Expert piano tuning, repair, and digital keyboard repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, minor repairs, and electronic keyboard diagnostics. Serving musicians, teachers, and families since 2019. Call (616) 229-0630 for a free consultation."
         />
         <meta
           name="keywords"

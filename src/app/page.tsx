@@ -32,7 +32,7 @@ function HeroSection() {
             Piano Tuning in Grand Rapids and surrounding areas
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-foreground leading-relaxed">
-            Professional, affordable, and reliable piano tuning services with <strong className="text-accent">8 years of experience</strong>. 
+            Professional, affordable, and reliable piano tuning and digital keyboard repair services with <strong className="text-accent">8 years of experience</strong>. 
             Serving West Michigan with precision and care.
           </p>
           
@@ -52,7 +52,7 @@ function HeroSection() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                📅 Book a Tuning
+                📅 Book Service
               </motion.button>
             </Link>
           </div>
@@ -100,8 +100,15 @@ function TrustSection() {
             className="bg-white p-8 rounded-lg shadow-lg border border-accent/20"
           >
             <div className="text-center">
-              <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">👨‍🔧</span>
+              <div className="w-80 h-60 rounded-xl overflow-hidden mx-auto mb-4 shadow-md">
+                <Image
+                  src="/jaiden-playing-piano.webp"
+                  alt="Jaiden playing piano"
+                  width={240}
+                  height={240}
+                  className="w-full h-full object-cover"
+                  unoptimized={true}
+                />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-secondary">About Me</h3>
               <p className="text-foreground">
@@ -176,6 +183,12 @@ function ServicesSection() {
       title: "Piano Repairs",
       description: "Comprehensive repair services including sticky keys, loose strings, broken hammers, and other mechanical issues to restore your piano's functionality.",
       icon: "🔧",
+      price: "Varies"
+    },
+    {
+      title: "Electronic Keyboard Repair",
+      description: "Professional repair service for digital pianos, MIDI keyboards, and stage keyboards. Expert diagnostics and repairs for key mechanisms, electronics, power supplies, and connectivity issues.",
+      icon: "⌨️",
       price: "Varies"
     },
     {
@@ -508,6 +521,7 @@ function ContactSection() {
                 <option value="">Select Service Type</option>
                 <option value="piano-tuning">Piano Tuning</option>
                 <option value="piano-repairs">Piano Repairs</option>
+                <option value="electronic-keyboard-repair">Electronic Keyboard Repair</option>
                 <option value="piano-appraisal">Piano Appraisal</option>
               </select>
               

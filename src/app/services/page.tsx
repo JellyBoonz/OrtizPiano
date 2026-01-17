@@ -28,6 +28,12 @@ export default function Services() {
       description: 'Expert repair service for common piano issues including sticky keys, loose strings, and other minor mechanical problems.',
       icon: '🔧',
       price: 'Starting at $50'
+    },
+    {
+      name: 'Electronic Keyboard Repair',
+      description: 'Expert repair service for digital pianos, MIDI keyboards, and stage keyboards. We diagnose and repair electronic components, key mechanisms, power supplies, circuit boards, display screens, and connectivity issues. Serving musicians, studios, churches, and schools throughout West Michigan.',
+      icon: '⌨️',
+      price: 'Starting at $75'
     }
   ];
 
