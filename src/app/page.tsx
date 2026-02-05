@@ -345,30 +345,36 @@ function ContactSection() {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      // Submit to Netlify Forms
-      const formData = new URLSearchParams();
-      formData.append('form-name', 'landing-contact-form');
-      formData.append('name', formState.name);
-      formData.append('email', formState.email);
-      formData.append('phone', formState.phone);
-      formData.append('serviceType', formState.serviceType);
-      if (formState.preferredDate) {
-        formData.append('preferredDate', formState.preferredDate);
-      }
-      if (formState.message) {
-        formData.append('message', formState.message);
-      }
+      // Submit to Netlify Forms - use the actual form element
+      const formElement = e.currentTarget as HTMLFormElement;
+      const formData = new FormData(formElement);
+      
+      // Ensure form-name is set
+      formData.set('form-name', 'landing-contact-form');
+      
+      // Convert FormData to URL-encoded string
+      const urlEncoded = Array.from(formData.entries())
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value.toString())}`)
+        .join('&');
+      
+      console.log('Submitting form with data:', urlEncoded);
 
-      const response = await fetch('/', {
+      // Submit to the static HTML form file so Netlify Forms can intercept it
+      const response = await fetch('/landing-contact-form.html', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: formData.toString(),
+        body: urlEncoded,
       });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+      console.log('Form submission response:', response.status, response.statusText);
+
+      // Netlify Forms returns 200 on success, or redirects (which fetch follows)
+      if (response.status >= 400) {
+        const errorText = await response.text();
+        console.error('Form submission error:', errorText);
+        throw new Error(`Form submission failed: ${response.status}`);
       }
 
       setSubmitStatus({
