@@ -6,6 +6,8 @@ Sitemap: https://ortizpiano.com/sitemap.xml
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
+Disallow: /contact-form.html
+Disallow: /landing-contact-form.html
 
 # Allow all other pages
 Allow: /*.html$
