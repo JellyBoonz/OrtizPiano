@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function Home() {
   return (
@@ -100,7 +100,7 @@ function TrustSection() {
             className="bg-white p-8 rounded-lg shadow-lg border border-accent/20"
           >
             <div className="text-center">
-              <div className="w-80 h-60 rounded-xl overflow-hidden mx-auto mb-4 shadow-md">
+              <div className="w-full max-w-sm md:w-80 h-auto md:h-60 rounded-xl overflow-hidden mx-auto mb-4 shadow-md">
                 <Image
                   src="/jaiden-playing-piano.webp"
                   alt="Jaiden playing piano"
@@ -345,47 +345,45 @@ function ContactSection() {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      const response = await fetch('/.netlify/functions/submit-form', {
+      // Submit to Netlify Forms
+      const formData = new URLSearchParams();
+      formData.append('form-name', 'landing-contact-form');
+      formData.append('name', formState.name);
+      formData.append('email', formState.email);
+      formData.append('phone', formState.phone);
+      formData.append('serviceType', formState.serviceType);
+      if (formState.preferredDate) {
+        formData.append('preferredDate', formState.preferredDate);
+      }
+      if (formState.message) {
+        formData.append('message', formState.message);
+      }
+
+      const response = await fetch('/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
-          name: formState.name,
-          email: formState.email,
-          phone: formState.phone,
-          serviceType: formState.serviceType,
-          preferredDate: formState.preferredDate,
-          message: formState.message
-        }),
+        body: formData.toString(),
       });
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.json();
-
-      if (data.error) {
-        setSubmitStatus({
-          type: 'error',
-          message: data.error,
-        });
-      } else {
-        setSubmitStatus({
-          type: 'success',
-          message: 'Thank you! I will contact you soon to schedule your appointment.',
-        });
-        setFormState({
-          name: '',
-          email: '',
-          phone: '',
-          serviceType: '',
-          preferredDate: '',
-          message: '',
-          website: ''
-        });
-      }
+      setSubmitStatus({
+        type: 'success',
+        message: 'Thank you! I will contact you soon to schedule your appointment.',
+      });
+      setFormState({
+        name: '',
+        email: '',
+        phone: '',
+        serviceType: '',
+        preferredDate: '',
+        message: '',
+        website: ''
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus({
@@ -483,10 +481,18 @@ function ContactSection() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form 
+              name="landing-contact-form"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit} 
+              className="space-y-4"
+            >
+              <input type="hidden" name="form-name" value="landing-contact-form" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   value={formState.name}
                   onChange={(e) => setFormState(prev => ({ ...prev, name: e.target.value }))}
@@ -495,6 +501,7 @@ function ContactSection() {
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email Address"
                   value={formState.email}
                   onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
@@ -505,6 +512,7 @@ function ContactSection() {
               
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone Number"
                 value={formState.phone}
                 onChange={(e) => setFormState(prev => ({ ...prev, phone: e.target.value }))}
@@ -513,6 +521,7 @@ function ContactSection() {
               />
               
               <select
+                name="serviceType"
                 value={formState.serviceType}
                 onChange={(e) => setFormState(prev => ({ ...prev, serviceType: e.target.value }))}
                 className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
@@ -527,12 +536,14 @@ function ContactSection() {
               
               <input
                 type="date"
+                name="preferredDate"
                 value={formState.preferredDate}
                 onChange={(e) => setFormState(prev => ({ ...prev, preferredDate: e.target.value }))}
                 className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
               />
               
               <textarea
+                name="message"
                 placeholder="Additional details or questions"
                 value={formState.message}
                 onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}

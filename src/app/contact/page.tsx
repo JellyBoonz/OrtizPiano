@@ -2,10 +2,251 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import React, { useState } from 'react';
 
 export default function Contact() {
+    const [formState, setFormState] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        serviceType: '',
+        preferredDate: '',
+        message: '',
+        website: '' // honeypot field
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{
+        type: 'success' | 'error' | null;
+        message: string;
+    }>({ type: null, message: '' });
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (isSubmitting) return;
+
+        // Robot protection checks
+        if (formState.website) {
+            // If honeypot field is filled, it's likely a bot
+            console.log('Bot detected via honeypot');
+            return;
+        }
+
+        // Additional validation
+        if (!formState.name.trim() || !formState.email.trim() || !formState.phone.trim()) {
+            setSubmitStatus({
+                type: 'error',
+                message: 'Please fill in all required fields.',
+            });
+            return;
+        }
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formState.email)) {
+            setSubmitStatus({
+                type: 'error',
+                message: 'Please enter a valid email address.',
+            });
+            return;
+        }
+
+        // Basic phone validation (at least 10 digits)
+        const phoneDigits = formState.phone.replace(/\D/g, '');
+        if (phoneDigits.length < 10) {
+            setSubmitStatus({
+                type: 'error',
+                message: 'Please enter a valid phone number.',
+            });
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: '' });
+
+        try {
+            // Submit to Netlify Forms
+            const formData = new URLSearchParams();
+            formData.append('form-name', 'contact-form');
+            formData.append('name', formState.name);
+            formData.append('email', formState.email);
+            formData.append('phone', formState.phone);
+            formData.append('serviceType', formState.serviceType);
+            if (formState.preferredDate) {
+                formData.append('preferredDate', formState.preferredDate);
+            }
+            if (formState.message) {
+                formData.append('message', formState.message);
+            }
+
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formData.toString(),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            setSubmitStatus({
+                type: 'success',
+                message: 'Thank you! I will contact you soon to schedule your appointment.',
+            });
+            setFormState({
+                name: '',
+                email: '',
+                phone: '',
+                serviceType: '',
+                preferredDate: '',
+                message: '',
+                website: ''
+            });
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setSubmitStatus({
+                type: 'error',
+                message: 'An error occurred. Please try calling (616) 229-0630 instead.',
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     return (
         <div className="min-h-screen bg-background">
+            <section className="py-16 bg-background">
+                <div className="max-w-4xl mx-auto px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
+                            Request Service
+                        </h2>
+                        <p className="text-lg text-foreground max-w-2xl mx-auto">
+                            Ready to schedule your piano tuning? Fill out the form below and I&apos;ll get back to you soon.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="bg-white p-8 rounded-xl shadow-lg border border-accent/20 relative"
+                    >
+                        {submitStatus.type && (
+                            <div
+                                className={`mb-4 p-4 rounded-lg ${
+                                    submitStatus.type === 'success'
+                                        ? 'bg-green-100 text-green-700'
+                                        : 'bg-red-100 text-red-700'
+                                }`}
+                            >
+                                {submitStatus.message}
+                            </div>
+                        )}
+
+                        <form 
+                            name="contact-form"
+                            method="POST"
+                            data-netlify="true"
+                            onSubmit={handleSubmit} 
+                            className="space-y-4"
+                        >
+                            <input type="hidden" name="form-name" value="contact-form" />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Your Name"
+                                    value={formState.name}
+                                    onChange={(e) => setFormState(prev => ({ ...prev, name: e.target.value }))}
+                                    className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
+                                    required
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email Address"
+                                    value={formState.email}
+                                    onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
+                                    className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
+                                    required
+                                />
+                            </div>
+                            
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="Phone Number"
+                                value={formState.phone}
+                                onChange={(e) => setFormState(prev => ({ ...prev, phone: e.target.value }))}
+                                className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
+                                required
+                            />
+                            
+                            <select
+                                name="serviceType"
+                                value={formState.serviceType}
+                                onChange={(e) => setFormState(prev => ({ ...prev, serviceType: e.target.value }))}
+                                className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
+                                required
+                            >
+                                <option value="">Select Service Type</option>
+                                <option value="piano-tuning">Piano Tuning</option>
+                                <option value="piano-repairs">Piano Repairs</option>
+                                <option value="electronic-keyboard-repair">Electronic Keyboard Repair</option>
+                                <option value="piano-appraisal">Piano Appraisal</option>
+                            </select>
+                            
+                            <input
+                                type="date"
+                                name="preferredDate"
+                                value={formState.preferredDate}
+                                onChange={(e) => setFormState(prev => ({ ...prev, preferredDate: e.target.value }))}
+                                className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
+                            />
+                            
+                            <textarea
+                                name="message"
+                                placeholder="Additional details or questions"
+                                value={formState.message}
+                                onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}
+                                rows={3}
+                                className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
+                            />
+                            
+                            {/* Honeypot field - hidden from users but visible to bots */}
+                            <div className="absolute left-[-9999px]">
+                                <input
+                                    type="text"
+                                    name="website"
+                                    value={formState.website}
+                                    onChange={(e) => setFormState(prev => ({ ...prev, website: e.target.value }))}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                />
+                            </div>
+                            
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className={`w-full py-3 px-6 rounded-lg font-semibold transition ${
+                                    isSubmitting
+                                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                        : 'bg-secondary text-background hover:bg-opacity-90'
+                                }`}
+                            >
+                                {isSubmitting ? 'Sending...' : 'Send Request'}
+                            </button>
+                        </form>
+                    </motion.div>
+                </div>
+            </section>
+            
             <section className="py-20 bg-gradient-to-b from-background to-accent/5">
                 <div className="max-w-4xl mx-auto px-4">
                     <motion.div
@@ -116,6 +357,7 @@ export default function Contact() {
                     </div>
                 </div>
             </section>
+
         </div>
     );
 }

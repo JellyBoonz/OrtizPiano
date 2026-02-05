@@ -3,5 +3,7 @@
   publish = ".next"
   functions = "netlify/functions"
 
-# Next.js handles routing internally, so we don't need catch-all redirects
-# The Next.js runtime on Netlify will handle routing automatically
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
