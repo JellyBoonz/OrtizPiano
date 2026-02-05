@@ -467,6 +467,22 @@ function ContactSection() {
             transition={{ delay: 0.4 }}
             className="bg-white p-8 rounded-lg shadow-lg border border-accent/20"
           >
+            {/* Hidden static HTML form for Netlify to detect during build */}
+            <form name="landing-contact-form" data-netlify="true" data-netlify-honeypot="website" hidden>
+              <input type="text" name="name" />
+              <input type="email" name="email" />
+              <input type="tel" name="phone" />
+              <select name="serviceType">
+                <option value="piano-tuning">Piano Tuning</option>
+                <option value="piano-repairs">Piano Repairs</option>
+                <option value="electronic-keyboard-repair">Electronic Keyboard Repair</option>
+                <option value="piano-appraisal">Piano Appraisal</option>
+              </select>
+              <input type="date" name="preferredDate" />
+              <textarea name="message"></textarea>
+              <input type="text" name="website" />
+            </form>
+            
             <h3 className="text-2xl font-semibold mb-6 text-secondary">Request Service</h3>
             
             {submitStatus.type && (
