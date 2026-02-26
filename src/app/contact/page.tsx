@@ -2,9 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 export default function Contact() {
+    const router = useRouter();
     const [formState, setFormState] = useState({
         name: '',
         email: '',
@@ -96,19 +98,7 @@ export default function Contact() {
                 throw new Error(`Form submission failed: ${response.status}`);
             }
 
-            setSubmitStatus({
-                type: 'success',
-                message: 'Thank you! I will contact you soon to schedule your appointment.',
-            });
-            setFormState({
-                name: '',
-                email: '',
-                phone: '',
-                serviceType: '',
-                preferredDate: '',
-                message: '',
-                website: ''
-            });
+            router.push('/thank-you');
         } catch (error) {
             console.error('Error submitting form:', error);
             setSubmitStatus({

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 export default function Home() {
@@ -286,6 +287,7 @@ function PricingSection() {
 }
 
 function ContactSection() {
+  const router = useRouter();
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -377,19 +379,7 @@ function ContactSection() {
         throw new Error(`Form submission failed: ${response.status}`);
       }
 
-      setSubmitStatus({
-        type: 'success',
-        message: 'Thank you! I will contact you soon to schedule your appointment.',
-      });
-      setFormState({
-        name: '',
-        email: '',
-        phone: '',
-        serviceType: '',
-        preferredDate: '',
-        message: '',
-        website: ''
-      });
+      router.push('/thank-you');
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus({

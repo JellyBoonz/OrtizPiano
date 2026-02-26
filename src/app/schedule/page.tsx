@@ -1,5 +1,6 @@
 'use client';
 import { useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { Music4 } from 'lucide-react';
 
 interface FormState {
@@ -11,6 +12,7 @@ interface FormState {
 }
 
 function ScheduleForm() {
+  const router = useRouter();
   const [formState, setFormState] = useState<FormState>({
     name: '',
     email: '',
@@ -80,17 +82,7 @@ function ScheduleForm() {
           message: data.error,
         });
       } else {
-        setSubmitStatus({
-          type: 'success',
-          message: 'Your request has been submitted! We will contact you soon.',
-        });
-        setFormState({
-          name: '',
-          email: '',
-          phone: '',
-          preferredDays: [],
-          preferredTime: '',
-        });
+        router.push('/thank-you');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
