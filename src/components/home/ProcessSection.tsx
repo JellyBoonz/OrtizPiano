@@ -47,7 +47,7 @@ export function ProcessSection() {
           {steps.map((step, i) => (
             <div
               key={i}
-              className="relative aspect-[3/4] rounded-xl overflow-hidden"
+              className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-lg"
             >
               <Image
                 src={step.image}

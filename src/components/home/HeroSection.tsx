@@ -14,7 +14,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl mb-10 font-light">
-            Give your piano that new car feel. Professional piano tuning and maintenance since 2017.
+            Your piano should inspire you to play, not hold you back. We&apos;ll make it sound and feel the way it should.
           </p>
 
           <div className="flex items-center gap-4 mb-8">
@@ -46,7 +46,7 @@ export function HeroSection() {
                 </div>
                 <span className="text-white font-medium">5.0</span>
               </div>
-              <span className="text-gray-400 text-sm">Hundreds of customers served</span>
+              <span className="text-gray-400 text-sm">300+ customers served since 2017</span>
             </div>
           </div>
 

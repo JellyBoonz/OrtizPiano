@@ -67,7 +67,7 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, i) => (
             <div
               key={i}
-              className="bg-gray-50 rounded-2xl p-6 border border-border"
+              className="bg-gray-50 rounded-2xl p-6 border border-border shadow-md"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">

@@ -9,7 +9,7 @@ export function AboutSection() {
       <div className="px-8 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div>
-            <div className="relative aspect-[4/4] rounded-2xl overflow-hidden">
+            <div className="relative aspect-[4/4] rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/jaiden-headshot.jpeg"
                 alt="Jaiden Ortiz, professional piano tuner in Grand Rapids"

@@ -27,7 +27,7 @@ export function ProblemSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {problems.map((problem, i) => (
-            <div key={i} className="flex flex-col items-center text-left gap-3 rounded-2xl border border-border bg-muted/40 p-6">
+            <div key={i} className="flex flex-col items-center text-left gap-3 rounded-2xl border border-border bg-muted/40 p-6 shadow-md">
               <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center shrink-0">
                 <problem.icon className="w-5 h-5 text-muted-foreground" />
               </div>

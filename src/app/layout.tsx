@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta property="og:site_name" content="Ortiz Piano Tuning" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ortizpiano.com/favicon.ico" />
+        <meta property="og:image" content="https://ortizpiano.com/og-image.png" />
         <meta property="og:image:alt" content="Professional Piano Tuning Services in Grand Rapids, MI" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ortiz Piano Tuning | Professional Piano Services in Grand Rapids" />
         <meta name="twitter:description" content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Call (616) 229-0630 for a free consultation." />
-        <meta name="twitter:image" content="https://ortizpiano.com/favicon.ico" />
+        <meta name="twitter:image" content="https://ortizpiano.com/og-image.png" />
         <meta name="twitter:site" content="@ortizpiano" />
         <meta name="twitter:creator" content="@ortizpiano" />
         {/* Additional SEO Meta Tags */}
@@ -116,7 +116,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   "@context": "https://schema.org",
                   "@type": "LocalBusiness",
                   "name": "Ortiz Piano Tuning",
-                  "image": "https://ortizpiano.com/favicon.ico",
+                  "image": "https://ortizpiano.com/og-image.png",
                   "telephone": "+1-616-229-0630",
                   "email": "zitropiano@gmail.com",
                   "address": {

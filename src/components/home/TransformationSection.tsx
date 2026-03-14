@@ -11,7 +11,7 @@ export function TransformationSection() {
             <h2 className="font-serif text-3xl md:text-4xl font-medium text-secondary leading-tight mb-6">
               Don&apos;t let your piano fade into the background
             </h2>
-            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden">
+            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/stock/piano-clean-livingroom.png"
                 alt="Beautiful piano in a clean living room"
@@ -23,7 +23,7 @@ export function TransformationSection() {
 
           {/* Right side: comparison cards stacked */}
           <div className="space-y-4">
-            <div className="bg-white rounded-2xl p-6">
+            <div className="bg-white rounded-2xl p-6 shadow-md">
               <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
                 Without regular care
               </p>
@@ -42,7 +42,7 @@ export function TransformationSection() {
               </ul>
             </div>
 
-            <div className="bg-secondary rounded-2xl p-6">
+            <div className="bg-secondary rounded-2xl p-6 shadow-md">
               <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
                 With Ortiz Piano Tuning
               </p>
