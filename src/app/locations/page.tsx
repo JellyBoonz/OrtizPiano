@@ -1,8 +1,7 @@
-"use client";
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { MapPin, ArrowRight, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const locations = [
   {
@@ -88,29 +87,29 @@ const locations = [
 
 export default function Locations() {
   return (
-    <div className="min-h-screen bg-background">
-      <section className="py-20 bg-gradient-to-b from-background to-accent/5">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-secondary">Service Areas</h1>
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
+    <div className="overflow-hidden max-w-[1400px] mx-auto px-4 md:px-6 space-y-6 py-6">
+      {/* Hero Section */}
+      <section className="bg-secondary rounded-3xl overflow-hidden">
+        <div className="px-8 md:px-16 py-16 md:py-24">
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
+              Service Areas
+            </h1>
+            <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto">
               Professional piano tuning and maintenance services throughout West Michigan.
             </p>
-          </motion.div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {locations.map((location, index) => (
-              <motion.div
+      {/* Locations Grid */}
+      <section className="bg-white rounded-3xl border border-border overflow-hidden">
+        <div className="px-8 md:px-16 py-10 md:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {locations.map((location) => (
+              <div
                 key={location.slug}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden border border-accent/20"
+                className="rounded-2xl border border-border bg-muted/40 overflow-hidden"
               >
                 <div className="relative h-48">
                   <Image
@@ -121,45 +120,71 @@ export default function Locations() {
                   />
                 </div>
                 <div className="p-6">
-                  <h2 className="text-2xl font-semibold mb-3 text-secondary">
-                    <Link href={`/locations/${location.slug}`} className="hover:text-accent transition-colors">
+                  <h2 className="font-serif text-2xl font-medium text-secondary mb-3">
+                    <Link href={`/locations/${location.slug}`} className="text-primary hover:text-primary/80 transition-colors">
                       {location.name}
                     </Link>
                   </h2>
-                  <p className="text-foreground/80 mb-4">{location.description}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{location.description}</p>
                   <div className="mb-4">
-                    <h3 className="font-semibold text-secondary mb-2">Neighborhoods Served:</h3>
-                    <ul className="list-disc list-inside text-foreground/80">
+                    <h3 className="font-medium text-secondary mb-2">Neighborhoods Served:</h3>
+                    <ul className="space-y-1 text-muted-foreground">
                       {location.neighborhoods.map((neighborhood, i) => (
-                        <li key={i}>{neighborhood}</li>
+                        <li key={i} className="flex items-center gap-2">
+                          <MapPin className="size-3.5 text-primary shrink-0" />
+                          {neighborhood}
+                        </li>
                       ))}
                     </ul>
                   </div>
                   <Link
                     href={`/locations/${location.slug}`}
-                    className="inline-flex items-center text-accent hover:text-secondary transition-colors"
+                    className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
                   >
                     Learn more
-                    <svg
-                      className="w-4 h-4 ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                    <ArrowRight className="size-4 ml-2" />
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-secondary rounded-3xl overflow-hidden">
+        <div className="px-8 md:px-16 py-16 md:py-24">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
+              Ready to schedule your tuning?
+            </h2>
+            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+              We serve all of West Michigan. Contact us today to book your appointment.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="tel:6162290630">
+                <Button
+                  size="lg"
+                  className="bg-primary text-white hover:bg-primary/90 text-base px-8 py-6 rounded-full shadow-lg shadow-primary/20 font-medium"
+                >
+                  <Phone className="size-4" />
+                  Call Now
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white/20 text-white hover:bg-white/10 text-base px-8 py-6 rounded-full font-medium"
+                >
+                  Schedule Online
+                  <ArrowRight className="size-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
     </div>
   );
-} 
+}

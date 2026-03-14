@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import React from 'react';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 
 const blogPosts = {
   "how-often-should-you-tune-your-piano": {
@@ -220,15 +221,16 @@ const blogPosts = {
   }
 };
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = blogPosts[params.slug as keyof typeof blogPosts];
+export default function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = React.use(params);
+  const post = blogPosts[slug as keyof typeof blogPosts];
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Post not found</h1>
-          <Link href="/blog" className="text-accent hover:text-secondary">
+      <div className="overflow-hidden max-w-[1400px] mx-auto px-4 md:px-6 space-y-6 py-6">
+        <div className="bg-white rounded-3xl border border-border px-8 md:px-16 py-10 md:py-16 text-center">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium text-secondary mb-4">Post not found</h1>
+          <Link href="/blog" className="text-primary hover:text-primary/80 transition-colors">
             Return to blog
           </Link>
         </div>
@@ -237,60 +239,46 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <article className="max-w-4xl mx-auto px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+    <div className="overflow-hidden max-w-[1400px] mx-auto px-4 md:px-6 space-y-6 py-6">
+      <article className="bg-white rounded-3xl border border-border px-8 md:px-16 py-10 md:py-16">
+        <div className="max-w-3xl mx-auto">
           <Link
             href="/blog"
-            className="inline-flex items-center text-accent hover:text-secondary mb-8"
+            className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8"
           >
-            <svg
-              className="w-4 h-4 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+            <ArrowLeft className="w-4 h-4 mr-2" />
             Back to blog
           </Link>
 
-          <div className="flex items-center text-sm text-foreground/60 mb-4">
+          <div className="flex items-center text-sm text-muted-foreground mb-4">
             <span>{post.date}</span>
             <span className="mx-2">•</span>
             <span>{post.readTime}</span>
           </div>
 
-          <h1 className="text-4xl font-bold mb-8 text-secondary">{post.title}</h1>
+          <h1 className="font-serif text-3xl md:text-4xl font-medium text-secondary leading-tight mb-8">
+            {post.title}
+          </h1>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="space-y-4">
             {post.content.map((section, index) => {
               if (section.type === "paragraph") {
                 return (
-                  <p key={index} className="mb-4 text-foreground/80">
+                  <p key={index} className="text-muted-foreground leading-relaxed">
                     {section.text}
                   </p>
                 );
               }
               if (section.type === "heading") {
                 return (
-                  <h2 key={index} className="text-2xl font-semibold mb-4 mt-8 text-secondary">
+                  <h2 key={index} className="text-xl font-medium text-secondary mt-8">
                     {section.text}
                   </h2>
                 );
               }
               if (section.type === "list") {
                 return (
-                  <ul key={index} className="list-disc pl-6 mb-4 text-foreground/80">
+                  <ul key={index} className="list-disc pl-6 text-muted-foreground leading-relaxed">
                     {section.items?.map((item, itemIndex) => (
                       <li key={itemIndex}>{item}</li>
                     ))}
@@ -300,8 +288,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               return null;
             })}
           </div>
-        </motion.div>
+        </div>
       </article>
     </div>
   );
-} 
+}

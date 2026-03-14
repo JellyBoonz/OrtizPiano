@@ -1,15 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    transpilePackages: ['framer-motion'],
-    webpack(config) {
-        config.module.rules.push({
-            test: /\.svg$/,
-            use: ["@svgr/webpack"],
-        });
-        return config;
-    },
+    turbopack: {},
     images: {
-        domains: ['ortizpiano.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'ortizpiano.com',
+            },
+        ],
     },
     async headers() {
         return [

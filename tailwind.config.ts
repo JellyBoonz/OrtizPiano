@@ -7,16 +7,38 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#ffffff",              // Clean white background
-        backgroundDarker: "#1e1f23",        // Deep charcoal/navy blend for navbar
-        foreground: "#2c2f36",              // Dark neutral for body text
-        accent: "#6cace4",                  // Muted blue—a calm, professional tone
-        secondary: "#111827",               // Slate for emphasis
-        subtle: "#b0b8c1",                  // Cool soft gray for borders/details
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        backgroundDarker: "var(--background-darker)",
+        subtle: "var(--subtle)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        card: {
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
+        },
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        destructive: "var(--destructive)",
       },
       fontFamily: {
-        'sans': ['ui-sans-serif', 'Roboto', 'sans-serif'],
-        'serif': ['ui-serif', '"Georgia"', 'serif'],
+        'sans': ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'serif': ['"Playfair Display"', 'ui-serif', 'Georgia', 'serif'],
         'mono': ['ui-monospace', 'SFMono-Regular', 'monospace'],
       },
     },

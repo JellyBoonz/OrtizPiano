@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Phone, ArrowRight, Star, Check, ShieldCheck, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function GrandRapidsLandingPage() {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -19,225 +20,194 @@ export default function GrandRapidsLandingPage() {
   const testimonials = [
     {
       name: "Sandy Chinavare",
-      rating: "★★★★★",
+      rating: 5,
       text: "Jaiden was very professional and polite. He communicated promptly and i was able to get my piano tuned quickly! I would definitely recommend him!",
     },
     {
       name: "Qiaorong Wang",
-      rating: "★★★★★",
+      rating: 5,
       text: "I had a great experience with Ortiz! He is a very professional and warm hearted person. He tuned very carefully in each key. Recommended him to anyone who needs!",
     },
     {
       name: "Tony Benac",
-      rating: "★★★★★",
+      rating: 5,
       text: "Prompt, friendly service, and our piano sounds great! Thanks!",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       {/* Sticky Header */}
       {showStickyHeader && (
-        <motion.div
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          className="fixed top-0 left-0 right-0 z-50 bg-backgroundDarker shadow-lg border-b border-subtle"
-        >
-          <div className="max-w-6xl mx-auto px-4 py-3">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-secondary shadow-lg border-b border-white/10 animate-in slide-in-from-top duration-300">
+          <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-3">
             <div className="flex items-center justify-between gap-4">
               <Link href="/#contact-section">
-                <motion.button
-                  className="bg-accent text-background px-6 py-2 rounded-full text-sm font-semibold hover:bg-opacity-90 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <Button className="bg-primary text-white hover:bg-primary/90 text-sm px-6 py-2 rounded-full shadow-lg shadow-primary/20 font-medium">
                   Book Appointment Now
-                </motion.button>
+                </Button>
               </Link>
               <Link href="tel:6162290630">
-                <motion.button
-                  className="bg-secondary text-background px-6 py-2 rounded-full text-sm font-semibold hover:bg-opacity-90 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Call (616) 229-0630 – Book Today
-                </motion.button>
+                <Button className="bg-white text-secondary hover:bg-white/90 text-sm px-6 py-2 rounded-full font-medium">
+                  <Phone className="size-3.5" />
+                  Call (616) 229-0630
+                </Button>
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
 
-      {/* Hero Section */}
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-gradient-to-b from-background to-accent/5">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-secondary leading-tight">
-              Grand Rapids Piano Tuning – Book Today (Limited Availability)
-            </h1>
-            <h2 className="text-xl md:text-2xl mb-8 text-foreground max-w-3xl mx-auto">
-              Professional who&apos;s tuned 1000+ pianos • Free check-up when you book now
-            </h2>
-            
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <Link href="/#contact-section">
-                <motion.button
-                  className="bg-accent text-background px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg w-full sm:w-auto"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Book Appointment Now
-                </motion.button>
-              </Link>
-              <Link href="tel:6162290630">
-                <motion.button
-                  className="bg-secondary text-background px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg w-full sm:w-auto"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Call (616) 229-0630 – Book Today
-                </motion.button>
-              </Link>
+      <div className="overflow-hidden max-w-[1400px] mx-auto px-4 md:px-6 space-y-6 py-6">
+        {/* Hero Section */}
+        <section className="bg-secondary rounded-3xl overflow-hidden">
+          <div className="px-8 md:px-16 py-20 md:py-28">
+            <div className="text-center max-w-3xl mx-auto">
+              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
+                Grand Rapids Piano Tuning -- Book Today (Limited Availability)
+              </h1>
+              <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto mb-10">
+                Professional who&apos;s tuned 1000+ pianos -- Free check-up when you book now
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/#contact-section">
+                  <Button
+                    size="lg"
+                    className="bg-primary text-white hover:bg-primary/90 text-base px-8 py-6 rounded-full shadow-lg shadow-primary/20 font-medium"
+                  >
+                    Book Appointment Now
+                    <ArrowRight className="size-4" />
+                  </Button>
+                </Link>
+                <Link href="tel:6162290630">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10 text-base px-8 py-6 rounded-full font-medium"
+                  >
+                    <Phone className="size-4" />
+                    Call (616) 229-0630
+                  </Button>
+                </Link>
+              </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Trust & Credibility Section */}
-      <section className="py-12 md:py-16 bg-background">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-8"
-          >
-            <div className="text-3xl mb-2">★★★★★</div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-secondary">
-              Trusted by Grand Rapids Piano Owners
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="bg-white p-6 rounded-lg shadow-lg border border-accent/20"
-              >
-                <div className="flex items-center mb-3">
-                  <span className="text-accent text-lg mr-2">{testimonial.rating}</span>
-                  <span className="text-secondary font-semibold">{testimonial.name}</span>
-                </div>
-                <p className="text-foreground italic">&quot;{testimonial.text}&quot;</p>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Guarantee Section */}
-      <section className="py-12 md:py-16 bg-accent/5">
-        <div className="max-w-4xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-white p-8 rounded-lg shadow-lg border border-accent/20 text-center"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-secondary">
-              Tune Accuracy Guarantee
-            </h2>
-            <p className="text-lg text-foreground max-w-2xl mx-auto">
-              If your piano does not hold pitch as expected, we&apos;ll make it right. Your satisfaction and sound quality are guaranteed.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+        {/* Trust & Credibility Section */}
+        <section className="bg-white rounded-3xl border border-border overflow-hidden">
+          <div className="px-8 md:px-16 py-10 md:py-16">
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="size-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-secondary leading-tight">
+                Trusted by Grand Rapids Piano Owners
+              </h2>
+            </div>
 
-      {/* Benefits Section */}
-      <section className="py-12 md:py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-white p-8 rounded-lg shadow-lg border border-accent/20"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-secondary text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="rounded-2xl border border-border bg-muted/40 p-6"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="size-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <span className="text-secondary font-medium">{testimonial.name}</span>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed italic">&quot;{testimonial.text}&quot;</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Guarantee Section */}
+        <section className="bg-muted rounded-3xl overflow-hidden">
+          <div className="px-8 md:px-16 py-10 md:py-16">
+            <div className="text-center max-w-2xl mx-auto">
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mx-auto mb-6">
+                <ShieldCheck className="size-6 text-primary" />
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-secondary leading-tight mb-6">
+                Tune Accuracy Guarantee
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                If your piano does not hold pitch as expected, we&apos;ll make it right. Your satisfaction and sound quality are guaranteed.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="bg-white rounded-3xl border border-border overflow-hidden">
+          <div className="px-8 md:px-16 py-10 md:py-16">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-secondary leading-tight text-center mb-10">
               Why Choose Our Piano Tuning Service
             </h2>
-            <ul className="space-y-4 text-foreground">
-              <li className="flex items-start">
-                <span className="text-accent text-xl mr-3">✓</span>
-                <span className="text-lg">Performance-ready sound for recitals, lessons, and performances</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent text-xl mr-3">✓</span>
-                <span className="text-lg">Reliable scheduling that works with your timeline</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent text-xl mr-3">✓</span>
-                <span className="text-lg">Local, experienced technician serving Grand Rapids</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent text-xl mr-3">✓</span>
-                <span className="text-lg">Transparent pricing with no hidden fees</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent text-xl mr-3">✓</span>
-                <span className="text-lg">Free check-up with booking</span>
-              </li>
-            </ul>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Secondary CTA Section */}
-      <section className="py-12 md:py-16 bg-accent/5">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-secondary">
-              Limited Appointments Available This Week
-            </h2>
-            <p className="text-lg text-foreground mb-8">
-              Don&apos;t wait – secure your piano tuning appointment today
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/#contact-section">
-                <motion.button
-                  className="bg-accent text-background px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg w-full sm:w-auto"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Book Appointment Now
-                </motion.button>
-              </Link>
-              <Link href="tel:6162290630">
-                <motion.button
-                  className="bg-secondary text-background px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg w-full sm:w-auto"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Call (616) 229-0630 – Book Today
-                </motion.button>
-              </Link>
+            <div className="max-w-2xl mx-auto space-y-4">
+              {[
+                "Performance-ready sound for recitals, lessons, and performances",
+                "Reliable scheduling that works with your timeline",
+                "Local, experienced technician serving Grand Rapids",
+                "Transparent pricing with no hidden fees",
+                "Free check-up with booking",
+              ].map((benefit, i) => (
+                <div key={i} className="flex items-start gap-3 rounded-2xl border border-border bg-muted/40 p-5">
+                  <Check className="size-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-lg text-muted-foreground leading-relaxed">{benefit}</span>
+                </div>
+              ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+          </div>
+        </section>
+
+        {/* Secondary CTA Section */}
+        <section className="bg-secondary rounded-3xl overflow-hidden">
+          <div className="px-8 md:px-16 py-16 md:py-24">
+            <div className="text-center max-w-2xl mx-auto">
+              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mx-auto mb-6">
+                <Clock className="size-6 text-white" />
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
+                Limited Appointments Available This Week
+              </h2>
+              <p className="text-lg text-gray-400 leading-relaxed mb-10">
+                Don&apos;t wait -- secure your piano tuning appointment today
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/#contact-section">
+                  <Button
+                    size="lg"
+                    className="bg-primary text-white hover:bg-primary/90 text-base px-8 py-6 rounded-full shadow-lg shadow-primary/20 font-medium"
+                  >
+                    Book Appointment Now
+                    <ArrowRight className="size-4" />
+                  </Button>
+                </Link>
+                <Link href="tel:6162290630">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10 text-base px-8 py-6 rounded-full font-medium"
+                  >
+                    <Phone className="size-4" />
+                    Call (616) 229-0630
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
-

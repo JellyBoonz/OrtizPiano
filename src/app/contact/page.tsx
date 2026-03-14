@@ -1,376 +1,326 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import {
+  Phone,
+  Mail,
+  Clock,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Contact() {
-    const router = useRouter();
-    const [formState, setFormState] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        serviceType: '',
-        preferredDate: '',
-        message: '',
-        website: '' // honeypot field
-    });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<{
-        type: 'success' | 'error' | null;
-        message: string;
-    }>({ type: null, message: '' });
+  const router = useRouter();
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    serviceType: "",
+    preferredDate: "",
+    message: "",
+    website: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (isSubmitting) return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSubmitting) return;
 
-        // Robot protection checks
-        if (formState.website) {
-            // If honeypot field is filled, it's likely a bot
-            console.log('Bot detected via honeypot');
-            return;
-        }
+    if (formState.website) {
+      console.log("Bot detected via honeypot");
+      return;
+    }
 
-        // Additional validation
-        if (!formState.name.trim() || !formState.email.trim() || !formState.phone.trim()) {
-            setSubmitStatus({
-                type: 'error',
-                message: 'Please fill in all required fields.',
-            });
-            return;
-        }
+    if (!formState.name.trim() || !formState.email.trim() || !formState.phone.trim()) {
+      setSubmitStatus({ type: "error", message: "Please fill in all required fields." });
+      return;
+    }
 
-        // Basic email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formState.email)) {
-            setSubmitStatus({
-                type: 'error',
-                message: 'Please enter a valid email address.',
-            });
-            return;
-        }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formState.email)) {
+      setSubmitStatus({ type: "error", message: "Please enter a valid email address." });
+      return;
+    }
 
-        // Basic phone validation (at least 10 digits)
-        const phoneDigits = formState.phone.replace(/\D/g, '');
-        if (phoneDigits.length < 10) {
-            setSubmitStatus({
-                type: 'error',
-                message: 'Please enter a valid phone number.',
-            });
-            return;
-        }
+    const phoneDigits = formState.phone.replace(/\D/g, "");
+    if (phoneDigits.length < 10) {
+      setSubmitStatus({ type: "error", message: "Please enter a valid phone number." });
+      return;
+    }
 
-        setIsSubmitting(true);
-        setSubmitStatus({ type: null, message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
 
-        try {
-            // Submit to Netlify Forms - use the actual form element
-            const formElement = e.currentTarget as HTMLFormElement;
-            const formData = new FormData(formElement);
-            
-            // Ensure form-name is set
-            formData.set('form-name', 'contact-form');
-            
-            // Convert FormData to URL-encoded string
-            const urlEncoded = Array.from(formData.entries())
-                .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value.toString())}`)
-                .join('&');
-            
-            console.log('Submitting form with data:', urlEncoded);
+    try {
+      const formElement = e.currentTarget as HTMLFormElement;
+      const formData = new FormData(formElement);
+      formData.set("form-name", "contact-form");
 
-            // Submit to the static HTML form file so Netlify Forms can intercept it
-            const response = await fetch('/contact-form.html', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: urlEncoded,
-            });
+      const urlEncoded = Array.from(formData.entries())
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value.toString())}`)
+        .join("&");
 
-            console.log('Form submission response:', response.status, response.statusText);
+      const response = await fetch("/contact-form.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: urlEncoded,
+      });
 
-            // Netlify Forms returns 200 on success, or redirects (which fetch follows)
-            if (response.status >= 400) {
-                const errorText = await response.text();
-                console.error('Form submission error:', errorText);
-                throw new Error(`Form submission failed: ${response.status}`);
-            }
+      if (response.status >= 400) {
+        throw new Error(`Form submission failed: ${response.status}`);
+      }
 
-            router.push('/thank-you');
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            setSubmitStatus({
-                type: 'error',
-                message: 'An error occurred. Please try calling (616) 229-0630 instead.',
-            });
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-    return (
-        <div className="min-h-screen bg-background">
-            <section className="py-16 bg-background">
-                <div className="max-w-4xl mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-center mb-12"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
-                            Request Service
-                        </h2>
-                        <p className="text-lg text-foreground max-w-2xl mx-auto">
-                            Ready to schedule your piano tuning? Fill out the form below and I&apos;ll get back to you soon.
-                        </p>
-                    </motion.div>
+      router.push("/thank-you");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "An error occurred. Please try calling (616) 229-0630 instead.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="bg-white p-8 rounded-xl shadow-lg border border-accent/20 relative"
-                    >
-                        {/* Hidden static HTML form for Netlify to detect during build */}
-                        <form name="contact-form" data-netlify="true" data-netlify-honeypot="website" hidden>
-                            <input type="text" name="name" />
-                            <input type="email" name="email" />
-                            <input type="tel" name="phone" />
-                            <select name="serviceType">
-                                <option value="piano-tuning">Piano Tuning</option>
-                                <option value="piano-repairs">Piano Repairs</option>
-                                <option value="electronic-keyboard-repair">Electronic Keyboard Repair</option>
-                                <option value="piano-appraisal">Piano Appraisal</option>
-                            </select>
-                            <input type="date" name="preferredDate" />
-                            <textarea name="message"></textarea>
-                            <input type="text" name="website" />
-                        </form>
-                        
-                        {submitStatus.type && (
-                            <div
-                                className={`mb-4 p-4 rounded-lg ${
-                                    submitStatus.type === 'success'
-                                        ? 'bg-green-100 text-green-700'
-                                        : 'bg-red-100 text-red-700'
-                                }`}
-                            >
-                                {submitStatus.message}
-                            </div>
-                        )}
-
-                        <form 
-                            name="contact-form"
-                            method="POST"
-                            data-netlify="true"
-                            onSubmit={handleSubmit} 
-                            className="space-y-4"
-                        >
-                            <input type="hidden" name="form-name" value="contact-form" />
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Your Name"
-                                    value={formState.name}
-                                    onChange={(e) => setFormState(prev => ({ ...prev, name: e.target.value }))}
-                                    className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
-                                    required
-                                />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email Address"
-                                    value={formState.email}
-                                    onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
-                                    className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
-                                    required
-                                />
-                            </div>
-                            
-                            <input
-                                type="tel"
-                                name="phone"
-                                placeholder="Phone Number"
-                                value={formState.phone}
-                                onChange={(e) => setFormState(prev => ({ ...prev, phone: e.target.value }))}
-                                className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
-                                required
-                            />
-                            
-                            <select
-                                name="serviceType"
-                                value={formState.serviceType}
-                                onChange={(e) => setFormState(prev => ({ ...prev, serviceType: e.target.value }))}
-                                className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
-                                required
-                            >
-                                <option value="">Select Service Type</option>
-                                <option value="piano-tuning">Piano Tuning</option>
-                                <option value="piano-repairs">Piano Repairs</option>
-                                <option value="electronic-keyboard-repair">Electronic Keyboard Repair</option>
-                                <option value="piano-appraisal">Piano Appraisal</option>
-                            </select>
-                            
-                            <input
-                                type="date"
-                                name="preferredDate"
-                                value={formState.preferredDate}
-                                onChange={(e) => setFormState(prev => ({ ...prev, preferredDate: e.target.value }))}
-                                className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
-                            />
-                            
-                            <textarea
-                                name="message"
-                                placeholder="Additional details or questions"
-                                value={formState.message}
-                                onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}
-                                rows={3}
-                                className="w-full px-4 py-2 rounded-lg border border-accent/20 focus:ring-2 focus:ring-accent focus:border-transparent"
-                            />
-                            
-                            {/* Honeypot field - hidden from users but visible to bots */}
-                            <div className="absolute left-[-9999px]">
-                                <input
-                                    type="text"
-                                    name="website"
-                                    value={formState.website}
-                                    onChange={(e) => setFormState(prev => ({ ...prev, website: e.target.value }))}
-                                    tabIndex={-1}
-                                    autoComplete="off"
-                                />
-                            </div>
-                            
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className={`w-full py-3 px-6 rounded-lg font-semibold transition ${
-                                    isSubmitting
-                                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                        : 'bg-secondary text-background hover:bg-opacity-90'
-                                }`}
-                            >
-                                {isSubmitting ? 'Sending...' : 'Send Request'}
-                            </button>
-                        </form>
-                    </motion.div>
+  return (
+    <section id="contact" className="py-24 md:py-36">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left - Info */}
+          <div>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-secondary leading-tight mb-8">
+              Ready to hear
+              <br />
+              the difference?
+            </h2>
+f            <div className="space-y-8">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Phone className="size-5 text-primary" />
                 </div>
-            </section>
-            
-            <section className="py-20 bg-gradient-to-b from-background to-accent/5">
-                <div className="max-w-4xl mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-center mb-16"
-                    >
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-secondary">Contact Me</h1>
-                        <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-                            Get in touch to schedule a service or ask any questions about piano tuning and maintenance.
-                        </p>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-8"
-                        >
-                            <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/20">
-                                <h2 className="text-2xl font-semibold mb-6 text-secondary">Contact Information</h2>
-                                <div className="space-y-6">
-                                    <div className="flex items-start space-x-4">
-                                        <span className="text-3xl">📞</span>
-                                        <div>
-                                            <h3 className="font-semibold text-secondary text-lg">Phone</h3>
-                                            <Link href="tel:6162290630" className="text-foreground/80 hover:text-accent transition-colors text-lg">
-                                                (616) 229-0630
-                                            </Link>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start space-x-4">
-                                        <span className="text-3xl">📧</span>
-                                        <div>
-                                            <h3 className="font-semibold text-secondary text-lg">Email</h3>
-                                            <Link href="mailto:zitropiano@gmail.com" className="text-foreground/80 hover:text-accent transition-colors text-lg">
-                                                zitropiano@gmail.com
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/20">
-                                <h2 className="text-2xl font-semibold mb-6 text-secondary">Service Area</h2>
-                                <div className="flex items-start space-x-4">
-                                    <span className="text-3xl">📍</span>
-                                    <div>
-                                        <p className="text-foreground/80 text-lg">
-                                            Grand Rapids and surrounding areas including:
-                                        </p>
-                                        <ul className="mt-2 text-foreground/80 text-lg list-disc list-inside">
-                                            <li>Ada</li>
-                                            <li>Rockford</li>
-                                            <li>Kentwood</li>
-                                            <li>Wyoming</li>
-                                            <li>Byron Center</li>
-                                            <li>Zeeland</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="space-y-8"
-                        >
-                            <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/20">
-                                <h2 className="text-2xl font-semibold mb-6 text-secondary">Business Hours</h2>
-                                <div className="space-y-4">
-                                    <div className="flex items-start space-x-4">
-                                        <span className="text-3xl">⏰</span>
-                                        <div className="space-y-2">
-                                            <p className="text-foreground/80 text-lg">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                                            <p className="text-foreground/80 text-lg">Saturday: By appointment</p>
-                                            <p className="text-foreground/80 text-lg">Sunday: Closed</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-8 rounded-xl shadow-lg border border-accent/20">
-                                <h2 className="text-2xl font-semibold mb-6 text-secondary">Quick Response</h2>
-                                <div className="flex items-start space-x-4">
-                                    <span className="text-3xl">⚡</span>
-                                    <div>
-                                        <p className="text-foreground/80 text-lg mb-4">
-                                            For the fastest response, please call or text directly. I typically respond to messages within 24 hours.
-                                        </p>
-                                        <Link href="tel:6162290630">
-                                            <motion.button
-                                                className="bg-accent text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-secondary hover:text-accent transition-all duration-300 shadow-lg w-full"
-                                                whileHover={{ scale: 1.02 }}
-                                                whileTap={{ scale: 0.98 }}
-                                            >
-                                                Call Now
-                                            </motion.button>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Phone</p>
+                  <Link
+                    href="tel:6162290630"
+                    className="text-lg font-medium text-secondary hover:text-primary transition-colors"
+                  >
+                    (616) 229-0630
+                  </Link>
                 </div>
-            </section>
+              </div>
 
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Mail className="size-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Email</p>
+                  <Link
+                    href="mailto:zitropiano@gmail.com"
+                    className="text-lg font-medium text-secondary hover:text-primary transition-colors"
+                  >
+                    zitropiano@gmail.com
+                  </Link>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Clock className="size-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Hours</p>
+                  <p className="text-lg font-medium text-secondary">Mon&ndash;Fri: 9AM&ndash;6PM</p>
+                  <p className="text-sm text-muted-foreground">Saturday by appointment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right - Form */}
+          <div>
+            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-border">
+              {/* Hidden static form for Netlify detection */}
+              <form name="contact-form" data-netlify="true" data-netlify-honeypot="website" hidden>
+                <input type="text" name="name" />
+                <input type="email" name="email" />
+                <input type="tel" name="phone" />
+                <select name="serviceType">
+                  <option value="piano-tuning">Piano Tuning</option>
+                  <option value="piano-repairs">Piano Repairs</option>
+                  <option value="electronic-keyboard-repair">Electronic Keyboard Repair</option>
+                  <option value="piano-appraisal">Piano Appraisal</option>
+                </select>
+                <input type="date" name="preferredDate" />
+                <textarea name="message"></textarea>
+                <input type="text" name="website" />
+              </form>
+
+              {submitStatus.type && (
+                <div
+                  className={`mb-6 p-4 rounded-xl text-sm ${
+                    submitStatus.type === "success"
+                      ? "bg-green-50 text-green-700 border border-green-200"
+                      : "bg-red-50 text-red-700 border border-red-200"
+                  }`}
+                >
+                  {submitStatus.message}
+                </div>
+              )}
+
+              <form
+                name="contact-form"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
+                className="space-y-5"
+              >
+                <input type="hidden" name="form-name" value="contact-form" />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2 block">
+                      Name *
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      value={formState.name}
+                      onChange={(e) => setFormState((prev) => ({ ...prev, name: e.target.value }))}
+                      required
+                      className="rounded-xl border-border bg-background h-12"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2 block">
+                      Email *
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      name="email"
+                      placeholder="you@email.com"
+                      value={formState.email}
+                      onChange={(e) => setFormState((prev) => ({ ...prev, email: e.target.value }))}
+                      required
+                      className="rounded-xl border-border bg-background h-12"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2 block">
+                    Phone *
+                  </label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    placeholder="(555) 123-4567"
+                    value={formState.phone}
+                    onChange={(e) => setFormState((prev) => ({ ...prev, phone: e.target.value }))}
+                    required
+                    className="rounded-xl border-border bg-background h-12"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="serviceType" className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2 block">
+                    Service Type
+                  </label>
+                  <Select
+                    value={formState.serviceType}
+                    onValueChange={(value) => setFormState((prev) => ({ ...prev, serviceType: value }))}
+                  >
+                    <SelectTrigger className="rounded-xl border-border bg-background h-12">
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="piano-tuning">Piano Tuning</SelectItem>
+                      <SelectItem value="piano-repairs">Piano Repairs</SelectItem>
+                      <SelectItem value="electronic-keyboard-repair">Electronic Keyboard Repair</SelectItem>
+                      <SelectItem value="piano-appraisal">Piano Appraisal</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <select name="serviceType" value={formState.serviceType} onChange={() => {}} className="hidden" aria-hidden="true">
+                    <option value="">Select Service Type</option>
+                    <option value="piano-tuning">Piano Tuning</option>
+                    <option value="piano-repairs">Piano Repairs</option>
+                    <option value="electronic-keyboard-repair">Electronic Keyboard Repair</option>
+                    <option value="piano-appraisal">Piano Appraisal</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="preferredDate" className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2 block">
+                    Preferred Date
+                  </label>
+                  <Input
+                    id="preferredDate"
+                    type="date"
+                    name="preferredDate"
+                    value={formState.preferredDate}
+                    onChange={(e) => setFormState((prev) => ({ ...prev, preferredDate: e.target.value }))}
+                    className="rounded-xl border-border bg-background h-12"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2 block">
+                    Additional Details
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell us about your piano..."
+                    value={formState.message}
+                    onChange={(e) => setFormState((prev) => ({ ...prev, message: e.target.value }))}
+                    rows={3}
+                    className="rounded-xl border-border bg-background"
+                  />
+                </div>
+
+                {/* Honeypot */}
+                <div className="absolute left-[-9999px]">
+                  <input
+                    type="text"
+                    name="website"
+                    value={formState.website}
+                    onChange={(e) => setFormState((prev) => ({ ...prev, website: e.target.value }))}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-secondary text-white hover:bg-secondary/90 py-6 rounded-full font-medium text-base"
+                >
+                  {isSubmitting ? "Sending..." : "Send Request"}
+                </Button>
+              </form>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </section>
+  );
 }
-  

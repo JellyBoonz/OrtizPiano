@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import React from 'react';
 import Link from 'next/link';
+import { ArrowLeft, ArrowRight, Check, MapPin, Phone } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const locations = {
   "grand-rapids": {
@@ -36,73 +38,73 @@ const locations = {
   }
 };
 
-export default function LocationPage({ params }: { params: { slug: string } }) {
-  const location = locations[params.slug as keyof typeof locations];
+export default function LocationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = React.use(params);
+  const location = locations[slug as keyof typeof locations];
 
   if (!location) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Location not found</h1>
-          <Link href="/locations" className="text-accent hover:text-secondary">
-            Return to locations
-          </Link>
-        </div>
+      <div className="overflow-hidden max-w-[1400px] mx-auto px-4 md:px-6 space-y-6 py-6">
+        <section className="bg-white rounded-3xl border border-border overflow-hidden">
+          <div className="px-8 md:px-16 py-16 md:py-24 text-center">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-secondary leading-tight mb-6">
+              Location not found
+            </h1>
+            <Link href="/locations" className="text-primary hover:text-primary/80 font-medium">
+              Return to locations
+            </Link>
+          </div>
+        </section>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <article className="max-w-4xl mx-auto px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+    <div className="overflow-hidden max-w-[1400px] mx-auto px-4 md:px-6 space-y-6 py-6">
+      {/* Hero Section */}
+      <section className="bg-secondary rounded-3xl overflow-hidden">
+        <div className="px-8 md:px-16 py-16 md:py-24">
           <Link
             href="/locations"
-            className="inline-flex items-center text-accent hover:text-secondary mb-8"
+            className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors"
           >
-            <svg
-              className="w-4 h-4 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+            <ArrowLeft className="size-4 mr-2" />
             Back to locations
           </Link>
 
-          <h1 className="text-4xl font-bold mb-8 text-secondary">{location.name}</h1>
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight">
+            Piano Tuning in {location.name}
+          </h1>
+        </div>
+      </section>
 
-          <div className="prose prose-lg max-w-none">
+      {/* Content Section */}
+      <section className="bg-white rounded-3xl border border-border overflow-hidden">
+        <div className="px-8 md:px-16 py-10 md:py-16">
+          <div className="max-w-3xl">
             {location.content.map((section, index) => {
               if (section.type === "paragraph") {
                 return (
-                  <p key={index} className="mb-4 text-foreground/80">
+                  <p key={index} className="text-lg text-muted-foreground leading-relaxed mb-6">
                     {section.text}
                   </p>
                 );
               }
               if (section.type === "heading") {
                 return (
-                  <h2 key={index} className="text-2xl font-semibold mb-4 mt-8 text-secondary">
+                  <h2 key={index} className="font-serif text-2xl md:text-3xl font-medium text-secondary leading-tight mt-10 mb-6">
                     {section.text}
                   </h2>
                 );
               }
               if (section.type === "list") {
                 return (
-                  <ul key={index} className="list-disc pl-6 mb-4 text-foreground/80">
+                  <ul key={index} className="space-y-3 mb-6">
                     {section.items?.map((item, itemIndex) => (
-                      <li key={itemIndex}>{item}</li>
+                      <li key={itemIndex} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
+                        <Check className="size-5 text-primary shrink-0 mt-0.5" />
+                        {item}
+                      </li>
                     ))}
                   </ul>
                 );
@@ -110,44 +112,60 @@ export default function LocationPage({ params }: { params: { slug: string } }) {
               return null;
             })}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-12 bg-white p-6 rounded-xl shadow-lg border border-accent/20">
-            <h3 className="text-2xl font-semibold mb-4 text-secondary">Neighborhoods Served</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-foreground/80">
-              {location.neighborhoods.map((neighborhood, index) => (
-                <li key={index} className="flex items-center">
-                  <svg
-                    className="w-4 h-4 mr-2 text-accent"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  {neighborhood}
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* Neighborhoods Section */}
+      <section className="bg-muted rounded-3xl overflow-hidden">
+        <div className="px-8 md:px-16 py-10 md:py-16">
+          <h3 className="font-serif text-2xl md:text-3xl font-medium text-secondary leading-tight mb-8">
+            Neighborhoods Served
+          </h3>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {location.neighborhoods.map((neighborhood, index) => (
+              <li key={index} className="flex items-center gap-3 text-muted-foreground">
+                <MapPin className="size-4 text-primary shrink-0" />
+                {neighborhood}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-          <div className="mt-12 text-center">
-            <Link href="/contact">
-              <motion.button
-                className="bg-accent text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-secondary hover:text-accent transition-all duration-300 shadow-lg"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Schedule Service in {location.name}
-              </motion.button>
-            </Link>
+      {/* CTA Section */}
+      <section className="bg-secondary rounded-3xl overflow-hidden">
+        <div className="px-8 md:px-16 py-16 md:py-24">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
+              Schedule Service in {location.name}
+            </h2>
+            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+              Get your piano sounding its best. Contact us today to book your appointment.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="tel:6162290630">
+                <Button
+                  size="lg"
+                  className="bg-primary text-white hover:bg-primary/90 text-base px-8 py-6 rounded-full shadow-lg shadow-primary/20 font-medium"
+                >
+                  <Phone className="size-4" />
+                  Call Now
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white/20 text-white hover:bg-white/10 text-base px-8 py-6 rounded-full font-medium"
+                >
+                  Schedule Online
+                  <ArrowRight className="size-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
-        </motion.div>
-      </article>
+        </div>
+      </section>
     </div>
   );
-} 
+}

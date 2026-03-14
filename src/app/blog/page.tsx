@@ -1,7 +1,5 @@
-"use client";
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const blogPosts = [
   {
@@ -32,65 +30,45 @@ const blogPosts = [
 
 export default function Blog() {
   return (
-    <div className="min-h-screen bg-background">
-      <section className="py-20 bg-gradient-to-b from-background to-accent/5">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-secondary">Piano Care Blog</h1>
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-              Expert tips and advice for maintaining your piano in optimal condition.
-            </p>
-          </motion.div>
+    <div className="overflow-hidden max-w-[1400px] mx-auto px-4 md:px-6 space-y-6 py-6">
+      <section className="bg-secondary rounded-3xl px-8 md:px-16 py-10 md:py-16 text-center">
+        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-4">
+          Piano Care Blog
+        </h1>
+        <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto text-lg">
+          Expert tips and advice for maintaining your piano in optimal condition.
+        </p>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <motion.article
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden border border-accent/20 p-6"
-              >
-                <div className="flex items-center text-sm text-foreground/60 mb-2">
-                  <span>{post.date}</span>
-                  <span className="mx-2">•</span>
-                  <span>{post.readTime}</span>
-                </div>
-                <h2 className="text-xl font-semibold mb-3 text-secondary">
-                  <Link href={`/blog/${post.slug}`} className="hover:text-accent transition-colors">
-                    {post.title}
-                  </Link>
-                </h2>
-                <p className="text-foreground/80 mb-4">{post.excerpt}</p>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="inline-flex items-center text-accent hover:text-secondary transition-colors"
-                >
-                  Read more
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+      <section className="bg-white rounded-3xl border border-border px-8 md:px-16 py-10 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <article
+              key={post.id}
+              className="rounded-2xl border border-border bg-muted/40 p-6"
+            >
+              <div className="flex items-center text-sm text-muted-foreground mb-2">
+                <span>{post.date}</span>
+                <span className="mx-2">•</span>
+                <span>{post.readTime}</span>
+              </div>
+              <h2 className="text-xl font-medium mb-3 text-secondary">
+                <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
+                  {post.title}
                 </Link>
-              </motion.article>
-            ))}
-          </div>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">{post.excerpt}</p>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
+              >
+                Read more
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
     </div>
   );
-} 
+}

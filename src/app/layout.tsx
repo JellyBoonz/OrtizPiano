@@ -4,22 +4,19 @@ import { ReactNode, useState } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import Link from "next/link";
+import Image from "next/image";
+import { Phone } from "lucide-react";
 import "./globals.css";
-import { motion } from "framer-motion";
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+import Footer from "@/components/Footer";
 
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   const shouldIncludeScript = pathname === "/" || pathname === "/schedule";
-  const isLandingPage = pathname === "/grand-rapids-piano-tuning";
 
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en">
       <head>
         <title>Ortiz Piano Tuning | Professional Piano Tuning & Repair</title>
         <meta
@@ -172,7 +169,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     "bestRating": "5",
                     "worstRating": "1"
                   },
-              
+
                   "makesOffer": [
                     {
                       "@type": "Offer",
@@ -247,18 +244,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </>
         )}
         <div>
-          {!isLandingPage && (
-            <>
-              <MobileNav />
-              <DesktopNav />
-            </>
-          )}
-          <main className={isLandingPage ? "" : "flex flex-col items-center p-10"}>{children}</main>
-          {!isLandingPage && (
-            <footer className="p-5 text-center border-t border-subtle">
-              <p className="text-secondary">© 2024 Ortiz Piano Tuning</p>
-            </footer>
-          )}
+          <MobileNav />
+          <DesktopNav />
+          <main className="flex flex-col items-center pt-24">{children}</main>
+          <Footer />
+          <Link
+            href="tel:6162290630"
+            className="fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary/90 text-white rounded-full px-5 py-3 shadow-lg shadow-primary/30 transition-all hover:scale-105 flex items-center gap-2 font-medium text-sm"
+            aria-label="Call Ortiz Piano Tuning"
+          >
+            <Phone className="size-4" />
+            Call Now
+          </Link>
         </div>
       </body>
     </html>
@@ -273,114 +270,96 @@ function MobileNav() {
   }
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-backgroundDarker z-50 shadow-md border-b border-subtle">
-      {/* Navbar */}
-      <div className="flex items-center justify-between p-4">
-        <h1 className="text-xl font-bold text-background font-serif">
-          Ortiz Piano Tuning
-        </h1>
-        <div className="flex items-center space-x-4">
-          <Link href="tel:6162290630" legacyBehavior>
-            <motion.button
-              className="bg-accent text-secondary px-4 py-3 rounded-full text-sm font-semibold hover:bg-secondary transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Call Now
-            </motion.button>
+    <div className="md:hidden fixed top-0 left-0 w-full z-50 max-w-[1400px] left-1/2 -translate-x-1/2 px-4 pt-4">
+      <div className="bg-secondary rounded-2xl border border-white/10 shadow-lg">
+        <div className="flex items-center justify-between px-5 py-3">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logos/piano-gold.svg"
+              alt="Ortiz Piano Tuning logo"
+              width={24}
+              height={24}
+            />
+            <span className="text-lg font-bold text-white font-serif">
+              Ortiz Piano
+            </span>
           </Link>
-          <button
-            className="text-background focus:outline-none"
-            onClick={toggleDrawer}
-          >
-            <span className="text-2xl">☰</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Drawer */}
-      {isOpen && (
-        <motion.div
-          className="fixed top-0 right-0 w-64 h-full bg-backgroundDarker shadow-lg z-50"
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
-          transition={{ type: "tween", stiffness: 70 }}
-        >
-          <div className="flex flex-col p-6 space-y-6 text-background">
+          <div className="flex items-center gap-3">
+            <Link href="tel:6162290630">
+              <button className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-all">
+                Call Now
+              </button>
+            </Link>
             <button
-              className="text-background self-end text-2xl focus:outline-none"
+              className="text-white focus:outline-none"
               onClick={toggleDrawer}
             >
-              ✕
+              <span className="text-2xl">{isOpen ? "\u2715" : "\u2630"}</span>
             </button>
-            <Link href="/" legacyBehavior>
-              <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
-                Home
-              </a>
-            </Link>
-            <Link href="/services" legacyBehavior>
-              <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
-                Services
-              </a>
-            </Link>
-            <Link href="/about" legacyBehavior>
-              <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
-                About Us
-              </a>
-            </Link>
-            <Link href="/blog" legacyBehavior>
-              <a className="text-lg hover:text-secondary" onClick={toggleDrawer}>
-                Blog
-              </a>
-            </Link>
-            <div className="flex flex-col items-center space-y-2">
-              <Link href="tel:6162290630" legacyBehavior>
-                <motion.button
-                  className="bg-accent text-secondary px-4 py-3 rounded-full text-sm font-semibold hover:bg-secondary transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Call Now
-                </motion.button>
-              </Link>
-            </div>
           </div>
-        </motion.div>
-      )}
+        </div>
+
+        {isOpen && (
+          <div className="border-t border-white/10 px-5 py-4 space-y-3">
+            {[
+              { href: "/", label: "Home" },
+              { href: "/services", label: "Services" },
+              { href: "/about", label: "About Us" },
+              { href: "/blog", label: "Blog" },
+              { href: "/contact", label: "Contact" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block text-gray-300 hover:text-white transition-colors py-1"
+                onClick={toggleDrawer}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 function DesktopNav() {
   return (
-    <nav className="hidden md:block fixed top-0 left-0 w-full bg-backgroundDarker z-50 shadow-md border-b border-subtle">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold text-background font-serif">
-            Ortiz Piano Tuning
+    <nav className="hidden md:block fixed top-0 z-50 w-full max-w-[1400px] left-1/2 -translate-x-1/2 px-4 md:px-6 pt-4">
+      <div className="bg-secondary rounded-2xl border border-white/10 shadow-lg">
+        <div className="flex items-center justify-between px-6 py-3">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logos/piano-gold.svg"
+              alt="Ortiz Piano Tuning logo"
+              width={28}
+              height={28}
+            />
+            <span className="text-xl font-bold text-white font-serif">
+              Ortiz Piano Tuning
+            </span>
           </Link>
           <div className="flex items-center space-x-8">
-            <Link href="/" className="text-background hover:text-secondary transition-colors">
+            <Link href="/" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               Home
             </Link>
-            <Link href="/services" className="text-background hover:text-secondary transition-colors">
+            <Link href="/services" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               Services
             </Link>
-            <Link href="/about" className="text-background hover:text-secondary transition-colors">
+            <Link href="/about" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               About Us
             </Link>
-            <Link href="/blog" className="text-background hover:text-secondary transition-colors">
+            <Link href="/blog" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               Blog
             </Link>
+            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+              Contact
+            </Link>
             <Link href="tel:6162290630">
-              <motion.button
-                className="bg-accent text-secondary px-4 py-2 rounded-full text-sm font-semibold hover:bg-secondary transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <button className="bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-all">
                 Call Now
-              </motion.button>
+              </button>
             </Link>
           </div>
         </div>
