@@ -64,7 +64,7 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/20 text-white hover:bg-white/10 text-base px-8 py-6 rounded-full font-medium"
+                className="border-white/20 text-white hover:bg-white/10 hover:text-white text-base px-8 py-6 rounded-full font-medium"
               >
                 Request a Quote
                 <ArrowRight className="size-4" />
