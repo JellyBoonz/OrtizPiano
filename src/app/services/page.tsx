@@ -82,7 +82,7 @@ export default function Services() {
                         <span className="text-primary font-medium">
                           {service.price}
                         </span>
-                        <Link href="/contact">
+                        <Link href="/schedule">
                           <Button className="bg-secondary text-white hover:bg-secondary/90 py-6 rounded-full font-medium">
                             Book Now
                           </Button>
@@ -118,7 +118,7 @@ export default function Services() {
                   Call Now
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/schedule">
                 <Button
                   variant="outline"
                   size="lg"

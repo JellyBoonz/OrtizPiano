@@ -81,7 +81,7 @@ export function ProcessSection() {
               Call Now
             </Button>
           </Link>
-          <Link href="/contact">
+          <Link href="/schedule">
             <Button
               variant="outline"
               size="lg"

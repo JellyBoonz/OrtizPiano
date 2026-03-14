@@ -50,13 +50,13 @@ export function AboutSection() {
                   Call Now
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/schedule">
                 <Button
                   size="lg"
                   variant="outline"
                   className="text-base px-8 py-6 rounded-full font-medium"
                 >
-                  Request a Quote
+                  Schedule Online
                   <ArrowRight className="size-4" />
                 </Button>
               </Link>

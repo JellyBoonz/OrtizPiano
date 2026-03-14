@@ -168,7 +168,7 @@ export default function Locations() {
                   Call Now
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/schedule">
                 <Button
                   variant="outline"
                   size="lg"

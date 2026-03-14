@@ -234,8 +234,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     {
                       "@type": "ListItem",
                       "position": 4,
-                      "name": "Contact",
-                      "item": "https://ortizpiano.com/contact"
+                      "name": "Schedule Online",
+                      "item": "https://ortizpiano.com/schedule"
                     }
                   ]
                 }),
@@ -306,7 +306,7 @@ function MobileNav() {
               { href: "/services", label: "Services" },
               { href: "/about", label: "About Us" },
               { href: "/blog", label: "Blog" },
-              { href: "/contact", label: "Contact" },
+              { href: "/schedule", label: "Schedule Online" },
             ].map((link) => (
               <Link
                 key={link.href}
@@ -353,8 +353,8 @@ function DesktopNav() {
             <Link href="/blog" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               Blog
             </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
-              Contact
+            <Link href="/schedule" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+              Schedule Online
             </Link>
             <Link href="tel:6162290630">
               <button className="bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:bg-primary/90 transition-all">
