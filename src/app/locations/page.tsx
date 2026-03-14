@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { MapPin, ArrowRight, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -7,7 +6,7 @@ const locations = [
   {
     name: "Grand Rapids",
     slug: "grand-rapids",
-    image: "/grand-rapids.webp",
+
     description: "Serving the heart of West Michigan with professional piano tuning and maintenance services.",
     neighborhoods: [
       "Downtown",
@@ -20,7 +19,7 @@ const locations = [
   {
     name: "Ada",
     slug: "ada",
-    image: "/ada.webp",
+
     description: "Expert piano services for the Ada community and surrounding areas.",
     neighborhoods: [
       "Ada Village",
@@ -31,7 +30,7 @@ const locations = [
   {
     name: "Rockford",
     slug: "rockford",
-    image: "/rockford.webp",
+
     description: "Professional piano tuning and repair services in Rockford and nearby communities.",
     neighborhoods: [
       "Rockford City",
@@ -42,7 +41,7 @@ const locations = [
   {
     name: "Kentwood",
     slug: "kentwood",
-    image: "/kentwood.webp",
+
     description: "Serving Kentwood and surrounding areas with expert piano maintenance.",
     neighborhoods: [
       "East Kentwood",
@@ -53,7 +52,7 @@ const locations = [
   {
     name: "Wyoming",
     slug: "wyoming",
-    image: "/wyoming.webp",
+
     description: "Comprehensive piano services for the Wyoming community.",
     neighborhoods: [
       "Georgetown",
@@ -64,7 +63,7 @@ const locations = [
   {
     name: "Byron Center",
     slug: "byron-center",
-    image: "/byron-center.webp",
+
     description: "Professional piano tuning and maintenance in Byron Center and surrounding areas.",
     neighborhoods: [
       "Byron Center Village",
@@ -75,7 +74,7 @@ const locations = [
   {
     name: "Zeeland",
     slug: "zeeland",
-    image: "/zeeland.webp",
+
     description: "Expert piano services for the Zeeland community.",
     neighborhoods: [
       "Zeeland City",
@@ -111,13 +110,11 @@ export default function Locations() {
                 key={location.slug}
                 className="rounded-2xl border border-border bg-muted/40 overflow-hidden"
               >
-                <div className="relative h-48">
-                  <Image
-                    src={location.image}
-                    alt={location.name}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative h-48 bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin className="size-8 text-primary mx-auto mb-2" />
+                    <span className="text-white/80 font-serif text-lg">{location.name}</span>
+                  </div>
                 </div>
                 <div className="p-6">
                   <h2 className="font-serif text-2xl font-medium text-secondary mb-3">
