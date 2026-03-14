@@ -6,6 +6,11 @@ import Script from "next/script";
 import Link from "next/link";
 import "./globals.css";
 import { motion } from "framer-motion";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -14,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const isLandingPage = pathname === "/grand-rapids-piano-tuning";
 
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <head>
         <title>Ortiz Piano Tuning | Professional Piano Tuning & Repair</title>
         <meta
