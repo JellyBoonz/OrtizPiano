@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-  
-  <!-- Homepage -->
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
     <loc>https://ortizpiano.com/</loc>
     <lastmod>2024-12-19</lastmod>
@@ -16,15 +14,6 @@
     </image:image>
   </url>
 
-  <!-- Grand Rapids Landing Page (Paid Campaign) -->
-  <url>
-    <loc>https://ortizpiano.com/grand-rapids-piano-tuning</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Services Page -->
   <url>
     <loc>https://ortizpiano.com/services</loc>
     <lastmod>2024-12-19</lastmod>
@@ -32,7 +21,6 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- About Page -->
   <url>
     <loc>https://ortizpiano.com/about</loc>
     <lastmod>2024-12-19</lastmod>
@@ -40,7 +28,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Contact Page -->
   <url>
     <loc>https://ortizpiano.com/contact</loc>
     <lastmod>2024-12-19</lastmod>
@@ -48,7 +35,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Schedule Page -->
   <url>
     <loc>https://ortizpiano.com/schedule</loc>
     <lastmod>2024-12-19</lastmod>
@@ -56,15 +42,13 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Blog Main Page -->
   <url>
-    <loc>https://ortizpiano.com/blog</loc>
+    <loc>https://ortizpiano.com/grand-rapids-piano-tuning</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Locations Main Page -->
   <url>
     <loc>https://ortizpiano.com/locations</loc>
     <lastmod>2024-12-19</lastmod>
@@ -72,24 +56,6 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Example Blog Posts (you should add actual blog posts here) -->
-  <!-- Replace these with your actual blog posts -->
-  <url>
-    <loc>https://ortizpiano.com/blog/piano-tuning-tips</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://ortizpiano.com/blog/piano-maintenance-guide</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Example Location Pages (you should add actual location pages here) -->
-  <!-- Replace these with your actual location pages -->
   <url>
     <loc>https://ortizpiano.com/locations/grand-rapids</loc>
     <lastmod>2024-12-19</lastmod>
@@ -98,17 +64,38 @@
   </url>
 
   <url>
-    <loc>https://ortizpiano.com/locations/kent-county</loc>
+    <loc>https://ortizpiano.com/blog</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://ortizpiano.com/blog/how-often-should-you-tune-your-piano</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://ortizpiano.com/locations/ottawa-county</loc>
+    <loc>https://ortizpiano.com/blog/piano-maintenance-tips-for-michigan-winters</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-</urlset> 
+  <url>
+    <loc>https://ortizpiano.com/blog/understanding-piano-pitch-raises</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://ortizpiano.com/thank-you</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
