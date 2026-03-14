@@ -10,7 +10,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium text-white leading-[1.1] tracking-tight mb-8">
-            Professional Piano Tuning in Jenison, MI
+            Professional Piano Tuning in Grand Rapids, MI
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl mb-10 font-light">

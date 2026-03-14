@@ -1,9 +1,9 @@
-import { Piano, Frown, Users, HeartOff } from "lucide-react";
+import { Piano, Frown, VolumeX } from "lucide-react";
 
 export function ProblemSection() {
   const problems = [
     {
-      icon: HeartOff,
+      icon: VolumeX,
       text: <>Your piano is slowly getting out of tune, <strong className="text-secondary font-medium">making the sound noticeably worse</strong>.</>,
     },
     {
@@ -11,7 +11,7 @@ export function ProblemSection() {
       text: <>Keys feel <strong className="text-secondary font-medium">wobbly and uneven</strong>, making practicing <strong className="text-secondary font-medium">less fun</strong>.</>,
     },
     {
-      icon: HeartOff,
+      icon: Frown,
       text: <>An out of tune piano <strong className="text-secondary font-medium">takes away from the magic</strong> of playing.</>,
     },
   ];

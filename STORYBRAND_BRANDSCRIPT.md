@@ -1,4 +1,4 @@
-**Jenison, Michigan**
+**Grand Rapids, Michigan**
 
 ---
 
