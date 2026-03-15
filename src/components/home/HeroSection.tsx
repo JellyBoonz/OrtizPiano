@@ -77,8 +77,8 @@ export function HeroSection() {
           <div className="hidden lg:block">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/stock/couple-playing-piano.png"
-                alt="Couple enjoying playing piano together"
+                src="/stock/girl-smiling-at-piano.jpeg"
+                alt="Young girl smiling while playing piano"
                 fill
                 className="object-cover"
               />

@@ -12,22 +12,22 @@
     --card-foreground: #18181b;
     --popover: #ffffff;
     --popover-foreground: #18181b;
-    --primary: #c9a84c;
+    --primary: #d4aa45;
     --primary-foreground: #1a1a1a;
-    --secondary: #1b3a2d;
-    --secondary-foreground: #f5f2ec;
-    --muted: #f0ede6;
-    --muted-foreground: #5e6b62;
-    --accent: #f0f4ef;
-    --accent-foreground: #1b3a2d;
+    --secondary: #235c42;
+    --secondary-foreground: #f2f7f4;
+    --muted: #eaf3ed;
+    --muted-foreground: #4a6b58;
+    --accent: #e4f0e8;
+    --accent-foreground: #235c42;
     --destructive: #c44e4e;
-    --border: #d9d5cc;
-    --input: #d9d5cc;
-    --ring: #c9a84c;
+    --border: #ccd9d2;
+    --input: #ccd9d2;
+    --ring: #d4aa45;
     --radius: 0.5rem;
 
-    --background-darker: #1b3a2d;
-    --subtle: #8a9b8f;
+    --background-darker: #235c42;
+    --subtle: #7aaa8a;
   }
 
   * {
