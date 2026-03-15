@@ -132,6 +132,7 @@ export default function Footer() {
             <a
               href="https://www.kopplin.co"
               target="_blank"
+              rel="dofollow"
               className="font-bold text-primary hover:text-primary/80 transition-colors"
             >
               Kopplin Co.
