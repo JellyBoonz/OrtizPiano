@@ -304,6 +304,7 @@ function MobileNav() {
             {[
               { href: "/", label: "Home" },
               { href: "/services", label: "Services" },
+              { href: "/piano-health-check", label: "Piano Health Check" },
               { href: "/about", label: "About Us" },
               { href: "/blog", label: "Blog" },
               { href: "/schedule", label: "Schedule Online" },
@@ -346,6 +347,9 @@ function DesktopNav() {
             </Link>
             <Link href="/services" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               Services
+            </Link>
+            <Link href="/piano-health-check" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+              Piano Health Check
             </Link>
             <Link href="/about" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               About Us

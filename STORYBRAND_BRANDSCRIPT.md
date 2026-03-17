@@ -109,7 +109,7 @@ Every piano owner knows the feeling: you sit down to play, and something's just�
 
 **You deserve better than that.**
 
-At Ortiz Piano Tuning, Jaiden Ortiz gets it — because he's been a pianist since he was five. He's studied piano performance, played for churches, and spent years chasing those beautiful musical moments that only come from a well-tuned instrument. He knows exactly what a neglected piano costs you: not just sound quality, but motivation, confidence, and the joy of playing.
+At Ortiz Piano Tuning, Jaiden Ortiz gets it — because music has been his life since he was five. He started performing at church, picked up the piano at 16, studied piano performance in college, and has spent years chasing those beautiful musical moments that only come from a well-tuned instrument. He knows exactly what a neglected piano costs you: not just sound quality, but motivation, confidence, and the joy of playing.
 
 **Here's how it works:**
 
