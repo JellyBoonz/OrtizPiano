@@ -74,12 +74,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="manifest" href="https://ortizpiano.com/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+      </head>
+      <body className="min-h-screen bg-background text-foreground">
         {/* Google Analytics - Site-wide tracking */}
         <Script
-          async
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-T49HW9K05X"
         />
-        <Script id="google-analytics-sitewide">
+        <Script id="google-analytics-sitewide" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -87,15 +89,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('config', 'G-T49HW9K05X');
           `}
         </Script>
-      </head>
-      <body className="min-h-screen bg-background text-foreground">
         {shouldIncludeScript && (
           <>
             <Script
-              async
+              strategy="afterInteractive"
               src="https://www.googletagmanager.com/gtag/js?id=AW-16763613402"
             />
-            <Script id="google-tag">
+            <Script id="google-tag" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -103,7 +103,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 gtag('config', 'AW-16763613402');
               `}
             </Script>
-            <Script id="gtag-config">{`
+            <Script id="gtag-config" strategy="afterInteractive">{`
               gtag('config', 'AW-16763613402/QmInCPGvvLgaENrhwbk-', {
                 'phone_conversion_number': '(616) 229-0630'
               });
