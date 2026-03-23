@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import Script from "next/script";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import "./globals.css";
@@ -67,21 +66,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="manifest" href="https://ortizpiano.com/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+        {/* Google Analytics - Site-wide tracking */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-T49HW9K05X" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-T49HW9K05X');
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen bg-background text-foreground">
-        {/* Google Analytics - Site-wide tracking */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-T49HW9K05X"
-        />
-        <Script id="google-analytics-sitewide" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-T49HW9K05X');
-          `}
-        </Script>
         {/* Conditional Google Ads scripts for / and /schedule */}
         <ConditionalScripts />
         <div>
