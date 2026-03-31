@@ -11,13 +11,15 @@ export function ServicesSection() {
       description:
         "Precision tuning to restore your piano's tone. Includes pitch adjustment and fine-tuning for optimal sound.",
       price: "$150",
+      href: "/piano-tuning-west-michigan",
     },
     {
       icon: <Wrench className="size-5" />,
       title: "Piano Repairs",
       description:
-        "Sticky keys, loose strings, broken hammers — comprehensive repair for any mechanical issue.",
+        "Sticky keys, loose strings, broken hammers, comprehensive repair for any mechanical issue.",
       price: "Varies",
+      href: "/piano-repairs-west-michigan",
     },
     {
       icon: <Keyboard className="size-5" />,
@@ -25,6 +27,7 @@ export function ServicesSection() {
       description:
         "Diagnostics and repair for digital pianos, MIDI controllers, and stage keyboards.",
       price: "Varies",
+      href: "/electronic-keyboard-repair-west-michigan",
     },
     {
       icon: <ClipboardList className="size-5" />,
@@ -32,6 +35,7 @@ export function ServicesSection() {
       description:
         "Professional evaluations for insurance, sale, or estate purposes with detailed condition reports.",
       price: "From $99",
+      href: "/piano-appraisals-west-michigan",
     },
   ];
 
@@ -50,8 +54,9 @@ export function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 rounded-2xl overflow-hidden">
             {services.map((service, i) => (
-              <div
+              <Link
                 key={i}
+                href={service.href}
                 className="bg-secondary/80 p-8 md:p-10 group hover:bg-white/5 transition-colors duration-500"
               >
                 <div className="flex items-start justify-between mb-6">
@@ -62,13 +67,13 @@ export function ServicesSection() {
                     {service.price}
                   </span>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-3">
+                <h3 className="text-xl font-medium text-white mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-gray-400 leading-relaxed text-sm">
                   {service.description}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
 

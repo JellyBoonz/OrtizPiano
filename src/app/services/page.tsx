@@ -1,44 +1,7 @@
 import Link from "next/link";
-import { Phone, ArrowRight, Piano, Music, Sparkles, Wrench, Keyboard } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const services = [
-  {
-    name: "Piano Tuning",
-    description:
-      "Fine-tuning your piano to ensure optimal sound quality. Our professional tuning service brings your piano back to its perfect pitch, ensuring every note sounds just right.",
-    icon: Piano,
-    price: "Starting at $150",
-  },
-  {
-    name: "Tuning + Pitch Raise",
-    description:
-      "Comprehensive service for pianos that are significantly out of tune. We carefully adjust the overall pitch while maintaining the instrument's integrity.",
-    icon: Music,
-    price: "Starting at $200",
-  },
-  {
-    name: "Tuning + Cleaning",
-    description:
-      "Complete package including thorough cleaning of the piano's interior and exterior, followed by precise tuning. Perfect for maintaining your piano's appearance and sound quality.",
-    icon: Sparkles,
-    price: "Starting at $250",
-  },
-  {
-    name: "Minor Repairs",
-    description:
-      "Expert repair service for common piano issues including sticky keys, loose strings, and other minor mechanical problems.",
-    icon: Wrench,
-    price: "Starting at $50",
-  },
-  {
-    name: "Electronic Keyboard Repair",
-    description:
-      "Expert repair service for digital pianos, MIDI keyboards, and stage keyboards. We diagnose and repair electronic components, key mechanisms, power supplies, circuit boards, display screens, and connectivity issues. Serving musicians, studios, churches, and schools throughout West Michigan.",
-    icon: Keyboard,
-    price: "Starting at $75",
-  },
-];
+import { services } from "@/lib/services";
 
 export default function Services() {
   return (
@@ -63,34 +26,34 @@ export default function Services() {
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div
+                <Link
                   key={index}
-                  className="rounded-2xl border border-border bg-muted/40 p-6"
+                  href={`/${service.slug}`}
+                  className="rounded-2xl border border-border bg-muted/40 p-6 hover:border-primary/30 transition-colors group"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 size-12 rounded-xl bg-primary/10 flex items-center justify-center">
                       <Icon className="size-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h2 className="font-serif text-xl md:text-2xl font-medium text-secondary mb-2">
+                      <h2 className="font-serif text-xl md:text-2xl font-medium text-secondary mb-2 group-hover:text-primary transition-colors">
                         {service.name}
                       </h2>
-                      <p className="text-muted-foreground leading-relaxed mb-4">
-                        {service.description}
+                      <p className="text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+                        {service.hero.subheadline}
                       </p>
                       <div className="flex items-center justify-between">
                         <span className="text-primary font-medium">
                           {service.price}
                         </span>
-                        <Link href="/schedule">
-                          <Button className="bg-secondary text-white hover:bg-secondary/90 py-6 rounded-full font-medium">
-                            Book Now
-                          </Button>
-                        </Link>
+                        <span className="text-sm text-secondary font-medium group-hover:text-primary transition-colors flex items-center gap-1">
+                          Learn More
+                          <ArrowRight className="size-4" />
+                        </span>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
