@@ -105,7 +105,7 @@ export default function ScheduleOnline() {
           <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
             Schedule Online
           </h1>
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <p className="text-gray-300 text-lg leading-relaxed">
             Fill out the form below and Jaiden will confirm your appointment within 24 hours.
           </p>
         </div>

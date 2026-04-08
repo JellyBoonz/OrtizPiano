@@ -22,7 +22,7 @@ const serviceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary text-gray-400">
+    <footer className="bg-secondary text-gray-300">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}

@@ -19,7 +19,7 @@ function ServicesDropdown({ onNavigate }: { onNavigate?: () => void }) {
     <div className="py-2">
       <Link
         href="/services"
-        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors font-medium"
+        className="block px-4 py-2 text-sm text-gray-100 hover:text-white hover:bg-white/5 transition-colors font-medium"
         onClick={onNavigate}
       >
         All Services
@@ -29,7 +29,7 @@ function ServicesDropdown({ onNavigate }: { onNavigate?: () => void }) {
         <Link
           key={service.slug}
           href={`/${service.slug}`}
-          className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+          className="block px-4 py-2 text-sm text-gray-100 hover:text-white hover:bg-white/5 transition-colors"
           onClick={onNavigate}
         >
           {service.name}
@@ -77,7 +77,7 @@ export function MobileNav() {
           <div className="border-t border-white/10 px-5 py-4 space-y-1">
             <Link
               href="/"
-              className="block text-gray-300 hover:text-white transition-colors py-2"
+              className="block text-gray-100 hover:text-white transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               Home
@@ -85,7 +85,7 @@ export function MobileNav() {
 
             <div>
               <button
-                className="flex items-center justify-between w-full text-gray-300 hover:text-white transition-colors py-2"
+                className="flex items-center justify-between w-full text-gray-100 hover:text-white transition-colors py-2"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
                 Services
@@ -106,7 +106,7 @@ export function MobileNav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-gray-300 hover:text-white transition-colors py-2"
+                className="block text-gray-100 hover:text-white transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -154,14 +154,14 @@ export function DesktopNav() {
           <div className="flex items-center space-x-8">
             <Link
               href="/"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+              className="text-gray-100 hover:text-white transition-colors text-sm font-medium"
             >
               Home
             </Link>
 
             <div className="relative" ref={dropdownRef}>
               <button
-                className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                className="flex items-center gap-1 text-gray-100 hover:text-white transition-colors text-sm font-medium"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
                 Services
@@ -184,7 +184,7 @@ export function DesktopNav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                className="text-gray-100 hover:text-white transition-colors text-sm font-medium"
               >
                 {link.label}
               </Link>

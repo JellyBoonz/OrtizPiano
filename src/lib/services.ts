@@ -271,6 +271,7 @@ export const services: ServiceData[] = [
       items: [
         { title: "Sound-Right Guarantee", description: "If your piano doesn't sound noticeably better, Jaiden comes back within 14 days and makes it right, free of charge." },
         { title: "On-Time Guarantee", description: "If Jaiden doesn't arrive within the quoted time window, $25 off, automatically." },
+        { title: "No hidden costs", description: "Jaiden quotes the full price before he starts. If the job takes longer than expected, the price stays the same." },
       ],
     },
     scarcity: "Pitch raises take longer than standard tunings, so Jaiden can only fit a limited number per week. During busy seasons, the wait can be 3-4 weeks.",
@@ -377,6 +378,7 @@ export const services: ServiceData[] = [
       items: [
         { title: "Sound-Right Guarantee", description: "If your piano doesn't sound noticeably better, Jaiden comes back within 14 days and makes it right, free of charge." },
         { title: "On-Time Guarantee", description: "If Jaiden doesn't arrive within the quoted window, $25 off, automatically." },
+        { title: "Spotless or free", description: "If you're not completely satisfied with the cleaning, Jaiden will redo it on the spot or refund the cleaning portion entirely." },
       ],
     },
     scarcity: "Tuning and cleaning appointments take longer than standard tunings, so availability is limited. Book early if you're preparing for a holiday or event.",
@@ -481,6 +483,7 @@ export const services: ServiceData[] = [
       items: [
         { title: "Transparent pricing", description: "If a repair requires parts or extensive work, Jaiden provides a clear estimate before proceeding. No surprises, no pressure." },
         { title: "On-Time Guarantee", description: "If Jaiden doesn't arrive within the quoted window, $25 off, automatically." },
+        { title: "Done right the first time", description: "Jaiden diagnoses the root cause, not just the symptom. If the same issue comes back within 30 days, he'll return and fix it at no charge." },
       ],
     },
     scarcity: "Jaiden carries common repair parts with him, but some repairs require ordering specific components. The sooner you call, the sooner it's fixed.",
@@ -585,6 +588,7 @@ export const services: ServiceData[] = [
       items: [
         { title: "Honest assessment", description: "If a repair doesn't make financial sense, Jaiden will tell you. He won't charge you $200 to fix a $150 keyboard." },
         { title: "Clear estimates", description: "You get a full diagnosis and cost estimate before any repair work begins. No surprises." },
+        { title: "30-day warranty", description: "If the same issue comes back within 30 days of the repair, Jaiden fixes it again at no additional charge." },
       ],
     },
     scarcity: "Electronic keyboard repairs require dedicated bench time. Availability varies by the complexity of the issue. Call early to get on the schedule.",
@@ -687,6 +691,7 @@ export const services: ServiceData[] = [
       items: [
         { title: "Professional documentation", description: "Your written appraisal report is suitable for insurance companies, estate attorneys, tax filings, and sale negotiations." },
         { title: "Honest assessment", description: "Jaiden tells you what your piano is actually worth, not what you want to hear. An accurate appraisal protects you whether you're buying, selling, or documenting." },
+        { title: "On-site accuracy", description: "Every appraisal includes a hands-on inspection of your piano's condition. No phone estimates or online guesses, just a real evaluation of the instrument in front of you." },
       ],
     },
     scarcity: "Appraisal appointments are available alongside tuning visits. If you're on a deadline for an estate, insurance, or sale, call early to secure your spot.",

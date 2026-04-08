@@ -12,7 +12,7 @@ export default function About() {
           <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
             About Ortiz Piano Tuning
           </h1>
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <p className="text-gray-300 text-lg leading-relaxed">
             Professional piano technician serving Grand Rapids and surrounding areas
           </p>
         </div>

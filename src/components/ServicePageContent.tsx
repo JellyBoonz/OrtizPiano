@@ -16,7 +16,7 @@ export function ServicePageContent({ service }: { service: ServiceData }) {
           <div className="px-8 md:px-16 py-16 md:py-24">
             <Link
               href="/services"
-              className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors"
+              className="inline-flex items-center text-gray-300 hover:text-white mb-8 transition-colors"
             >
               <ArrowLeft className="size-4 mr-2" />
               All Services
@@ -28,7 +28,7 @@ export function ServicePageContent({ service }: { service: ServiceData }) {
             <p className="font-serif text-xl md:text-2xl text-gray-300 leading-snug max-w-xl mb-6">
               {service.hero.headline}
             </p>
-            <p className="text-gray-400 text-lg leading-relaxed max-w-lg mb-6">
+            <p className="text-gray-300 text-lg leading-relaxed max-w-lg mb-6">
               {service.hero.subheadline}
             </p>
 
@@ -154,14 +154,14 @@ export function ServicePageContent({ service }: { service: ServiceData }) {
 
       {/* What's Included + Bonuses */}
       <section className="bg-secondary rounded-3xl overflow-hidden">
-        <div className="px-8 md:px-16 py-10 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-16 text-center">
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">
             What You Get
           </p>
           <h2 className="font-serif text-2xl md:text-3xl font-medium text-white leading-tight mb-10">
             {service.included.heading}
           </h2>
-          <ul className="space-y-4">
+          <ul className="space-y-4 inline-block text-left">
             {service.included.items.map((item, i) => (
               <li key={i} className="flex items-start gap-3 text-gray-300 leading-relaxed">
                 <Check className="size-5 text-primary shrink-0 mt-0.5" />
@@ -175,14 +175,14 @@ export function ServicePageContent({ service }: { service: ServiceData }) {
               <p className="text-primary font-medium tracking-widest uppercase text-sm mb-6">
                 Included Bonuses
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {service.included.bonuses.map((bonus, i) => (
                   <div
                     key={i}
                     className="bg-white/5 rounded-2xl p-6 border border-white/10"
                   >
                     <p className="text-primary font-semibold mb-2">{bonus.label}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed">{bonus.detail}</p>
+                    <p className="text-gray-300 text-sm leading-relaxed">{bonus.detail}</p>
                   </div>
                 ))}
               </div>
@@ -304,7 +304,7 @@ export function ServicePageContent({ service }: { service: ServiceData }) {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
               {service.ctaHeadline}
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+            <p className="text-gray-300 text-lg leading-relaxed mb-10">
               {service.ctaSubheadline}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

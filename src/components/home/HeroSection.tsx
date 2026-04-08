@@ -13,7 +13,7 @@ export function HeroSection() {
             Professional Piano Tuning in Grand Rapids, MI
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl mb-10 font-light">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl mb-10 font-light">
             Your piano should inspire you to play, not hold you back. We&apos;ll make it sound and feel the way it should.
           </p>
 
@@ -46,7 +46,7 @@ export function HeroSection() {
                 </div>
                 <span className="text-white font-medium">5.0</span>
               </div>
-              <span className="text-gray-400 text-sm">300+ customers served since 2017</span>
+              <span className="text-gray-300 text-sm">300+ customers served since 2017</span>
             </div>
           </div>
 

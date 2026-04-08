@@ -94,7 +94,7 @@ export default function Locations() {
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
               Service Areas
             </h1>
-            <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
               Professional piano tuning and maintenance services throughout West Michigan.
             </p>
           </div>
@@ -155,7 +155,7 @@ export default function Locations() {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
               Ready to schedule your tuning?
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+            <p className="text-gray-300 text-lg leading-relaxed mb-10">
               We serve all of West Michigan. Contact us today to book your appointment.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

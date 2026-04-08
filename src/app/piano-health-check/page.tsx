@@ -75,10 +75,10 @@ export default function PianoHealthCheck() {
       <div className="max-w-lg mx-auto">
         {/* Page header */}
         <div className="text-center mb-8">
-          <h1 className="font-serif text-3xl md:text-4xl font-medium text-white mb-2">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium text-secondary mb-2">
             Piano Health Check
           </h1>
-          <p className="text-gray-400 text-sm">3 questions. 60 seconds.</p>
+          <p className="text-muted-foreground text-sm">3 questions. 60 seconds.</p>
         </div>
 
         <div className="bg-white rounded-3xl border border-border p-8 md:p-10">

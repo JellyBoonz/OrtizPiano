@@ -70,7 +70,7 @@ export function ServicesSection() {
                 <h3 className="text-xl font-medium text-white mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <p className="text-gray-300 leading-relaxed text-sm">
                   {service.description}
                 </p>
               </Link>

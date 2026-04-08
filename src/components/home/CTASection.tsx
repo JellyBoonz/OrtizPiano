@@ -23,7 +23,7 @@ export function CTASection() {
               />
             </span>
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed mb-10">
+          <p className="text-gray-300 text-lg leading-relaxed mb-10">
             Whether it&apos;s been months or years since your last tuning, Jaiden
             is here to help. Schedule a service or give us a call today.
           </p>

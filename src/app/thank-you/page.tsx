@@ -11,7 +11,7 @@ export default function ThankYou() {
           <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight">
             Thank You!
           </h1>
-          <p className="text-gray-400 leading-relaxed text-lg">
+          <p className="text-gray-300 leading-relaxed text-lg">
             Your request has been received. I will contact you soon to schedule
             your appointment.
           </p>

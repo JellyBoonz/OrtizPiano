@@ -35,7 +35,7 @@ export default function Blog() {
         <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-4">
           Piano Care Blog
         </h1>
-        <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto text-lg">
+        <p className="text-gray-300 leading-relaxed max-w-2xl mx-auto text-lg">
           Expert tips and advice for maintaining your piano in optimal condition.
         </p>
       </section>

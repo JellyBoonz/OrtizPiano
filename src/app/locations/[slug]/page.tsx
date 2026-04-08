@@ -66,7 +66,7 @@ export default function LocationPage({ params }: { params: Promise<{ slug: strin
         <div className="px-8 md:px-16 py-16 md:py-24">
           <Link
             href="/locations"
-            className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors"
+            className="inline-flex items-center text-gray-300 hover:text-white mb-8 transition-colors"
           >
             <ArrowLeft className="size-4 mr-2" />
             Back to locations
@@ -139,7 +139,7 @@ export default function LocationPage({ params }: { params: Promise<{ slug: strin
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
               Schedule Service in {location.name}
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+            <p className="text-gray-300 text-lg leading-relaxed mb-10">
               Get your piano sounding its best. Contact us today to book your appointment.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

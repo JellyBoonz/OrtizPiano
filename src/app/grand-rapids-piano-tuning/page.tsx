@@ -67,7 +67,7 @@ export default function GrandRapidsLandingPage() {
               <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
                 Your piano should sound the way it did the day you fell in love with it.
               </h1>
-              <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto mb-10">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-10">
                 Jaiden Ortiz has tuned 1,000+ pianos across West Michigan. He comes to you, evaluates your instrument in person, and makes it sound the way it should.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -186,7 +186,7 @@ export default function GrandRapidsLandingPage() {
                     </div>
                     <span className="text-white font-medium text-sm">{testimonial.name}</span>
                   </div>
-                  <p className="text-gray-400 leading-relaxed italic text-sm">&quot;{testimonial.text}&quot;</p>
+                  <p className="text-gray-300 leading-relaxed italic text-sm">&quot;{testimonial.text}&quot;</p>
                 </div>
               ))}
             </div>
@@ -232,10 +232,10 @@ export default function GrandRapidsLandingPage() {
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
                 Appointments are limited — West Michigan only.
               </h2>
-              <p className="text-lg text-gray-400 leading-relaxed mb-4">
+              <p className="text-lg text-gray-300 leading-relaxed mb-4">
                 Get back to the music. Your piano — and everyone who listens — will thank you.
               </p>
-              <p className="text-sm text-gray-400 mb-10">
+              <p className="text-sm text-gray-300 mb-10">
                 Not sure if it&apos;s time?{' '}
                 <Link href="/piano-health-check" className="text-primary underline underline-offset-2 hover:text-primary/80">
                   Take the 60-second Piano Health Check →

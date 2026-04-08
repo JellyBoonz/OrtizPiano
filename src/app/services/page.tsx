@@ -12,7 +12,7 @@ export default function Services() {
           <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
             Our Services
           </h1>
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <p className="text-gray-300 text-lg leading-relaxed">
             Professional piano services to keep your instrument in perfect
             condition. From routine tuning to repairs, we have you covered.
           </p>
@@ -67,7 +67,7 @@ export default function Services() {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
               Not sure which service you need?
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+            <p className="text-gray-300 text-lg leading-relaxed mb-10">
               Contact us for a free consultation. We&apos;ll help you determine
               the best service for your piano.
             </p>
