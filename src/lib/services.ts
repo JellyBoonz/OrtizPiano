@@ -65,7 +65,7 @@ export const services: ServiceData[] = [
     price: "Starting at $150",
     icon: Piano,
     metaTitle: "Piano Tuning in West Michigan | Ortiz Piano Tuning",
-    metaDescription: "Professional piano tuning in Grand Rapids and West Michigan. Precision pitch adjustment by a full-time technician with 8+ years of experience. Zero-prep appointments, free minor repairs included, and a sound-right guarantee. Starting at $150.",
+    metaDescription: "Professional piano tuning in West Michigan. Precision pitch adjustment by a full-time technician with 8+ years of experience. Zero-prep appointments, free minor repairs included, and a sound-right guarantee. Starting at $150.",
     images: {
       hero: { src: "/stock/piano-tuning-handle.png", alt: "Professional piano tuning tools resting on piano strings" },
       guide: { src: "/jaiden-playing-piano.webp", alt: "Jaiden Ortiz playing piano" },
@@ -73,7 +73,7 @@ export const services: ServiceData[] = [
     },
     hero: {
       headline: "Your piano used to make you want to play. It can again.",
-      subheadline: "Professional piano tuning in Grand Rapids and West Michigan. One visit, zero hassle, and a sound so clear it pulls you back to the bench.",
+      subheadline: "Professional piano tuning in West Michigan. One visit, zero hassle, and a sound so clear it pulls you back to the bench.",
     },
     problem: {
       heading: "You know something's off. You just haven't done anything about it yet.",
@@ -175,7 +175,7 @@ export const services: ServiceData[] = [
     price: "Starting at $200",
     icon: Music,
     metaTitle: "Piano Pitch Raise Service in West Michigan | Ortiz Piano Tuning",
-    metaDescription: "Has your piano gone years without tuning? A pitch raise brings it back to life. Careful tension adjustment, full fine-tuning, and a sound-right guarantee. Serving Grand Rapids and West Michigan.",
+    metaDescription: "Has your piano gone years without tuning? A pitch raise brings it back to life. Careful tension adjustment, full fine-tuning, and a sound-right guarantee. Serving West Michigan.",
     images: {
       hero: { src: "/stock/piano-strings.jpg", alt: "Close-up of piano strings and tuning pins" },
       guide: { src: "/jaiden-headshot.jpeg", alt: "Jaiden Ortiz, professional piano technician" },
@@ -284,7 +284,7 @@ export const services: ServiceData[] = [
     price: "Starting at $250",
     icon: Sparkles,
     metaTitle: "Piano Tuning and Cleaning in West Michigan | Ortiz Piano Tuning",
-    metaDescription: "Professional piano tuning and deep cleaning in Grand Rapids and West Michigan. Interior and exterior cleaning, full tuning, and free diagnostic. Make your piano look and sound its best.",
+    metaDescription: "Professional piano tuning and deep cleaning in West Michigan. Interior and exterior cleaning, full tuning, and free diagnostic. Make your piano look and sound its best.",
     images: {
       hero: { src: "/stock/piano-keys.jpg", alt: "Gleaming piano keys on a clean instrument" },
       guide: { src: "/jaiden-playing-piano.webp", alt: "Jaiden Ortiz playing piano" },
@@ -391,7 +391,7 @@ export const services: ServiceData[] = [
     price: "Starting at $50",
     icon: Wrench,
     metaTitle: "Piano Repair Services in West Michigan | Ortiz Piano Tuning",
-    metaDescription: "Expert minor piano repairs in Grand Rapids and West Michigan. Sticky keys, loose strings, squeaky pedals, and more. Most repairs completed in one on-site visit. Starting at $50.",
+    metaDescription: "Expert minor piano repairs in West Michigan. Sticky keys, loose strings, squeaky pedals, and more. Most repairs completed in one on-site visit. Starting at $50.",
     images: {
       hero: { src: "/stock/piano-tuning-handle.png", alt: "Piano repair tools on an open piano" },
       guide: { src: "/jaiden-headshot.jpeg", alt: "Jaiden Ortiz, professional piano technician" },
@@ -496,7 +496,7 @@ export const services: ServiceData[] = [
     price: "Starting at $75",
     icon: Keyboard,
     metaTitle: "Electronic Keyboard Repair in West Michigan | Ortiz Piano Tuning",
-    metaDescription: "Expert repair for digital pianos, MIDI keyboards, and stage keyboards in Grand Rapids and West Michigan. Dead keys, power issues, connectivity problems, and more. Starting at $75.",
+    metaDescription: "Expert repair for digital pianos, MIDI keyboards, and stage keyboards in West Michigan. Dead keys, power issues, connectivity problems, and more. Starting at $75.",
     images: {
       hero: { src: "/stock/teenager-with-friend-playing-keyboard.jpg", alt: "Teenager playing an electronic keyboard" },
       guide: { src: "/jaiden-headshot.jpeg", alt: "Jaiden Ortiz, professional piano technician" },
@@ -601,7 +601,7 @@ export const services: ServiceData[] = [
     price: "From $99",
     icon: ClipboardList,
     metaTitle: "Piano Appraisal Services in West Michigan | Ortiz Piano Tuning",
-    metaDescription: "Professional piano appraisals in Grand Rapids and West Michigan. Accurate valuations for insurance, sale, estate, or donation purposes. On-site inspection and written report. From $99.",
+    metaDescription: "Professional piano appraisals in West Michigan. Accurate valuations for insurance, sale, estate, or donation purposes. On-site inspection and written report. From $99.",
     images: {
       hero: { src: "/stock/piano-clean-livingroom.png", alt: "Beautiful piano in a well-appointed living room" },
       guide: { src: "/jaiden-headshot.jpeg", alt: "Jaiden Ortiz, professional piano technician" },

@@ -9,6 +9,7 @@ const blogPosts = {
     title: "How Often Should You Tune Your Piano?",
     date: "March 15, 2024",
     readTime: "1 min read",
+    image: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1600&q=80",
     content: [
       {
         type: "paragraph",
@@ -81,6 +82,7 @@ const blogPosts = {
     title: "Piano Maintenance Tips for Michigan Winters",
     date: "March 10, 2024",
     readTime: "1 min read",
+    image: "https://images.unsplash.com/photo-1483137140003-ae073b395549?auto=format&fit=crop&w=1600&q=80",
     content: [
       {
         type: "paragraph",
@@ -152,6 +154,7 @@ const blogPosts = {
     title: "Understanding Piano Pitch Raises",
     date: "March 5, 2024",
     readTime: "1 min read",
+    image: "https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&w=1600&q=80",
     content: [
       {
         type: "paragraph",
@@ -259,6 +262,14 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
           <h1 className="font-serif text-3xl md:text-4xl font-medium text-secondary leading-tight mb-8">
             {post.title}
           </h1>
+
+          {post.image && (
+            <div
+              className="aspect-[16/9] w-full rounded-2xl bg-cover bg-center bg-muted mb-10"
+              style={{ backgroundImage: `url(${post.image})` }}
+              aria-hidden="true"
+            />
+          )}
 
           <div className="space-y-4">
             {post.content.map((section, index) => {

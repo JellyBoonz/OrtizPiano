@@ -6,7 +6,8 @@ const locations = [
   {
     name: "Grand Rapids",
     slug: "grand-rapids",
-
+    hasPage: true,
+    image: "/locations/grand-rapids.jpg",
     description: "Serving the heart of West Michigan with professional piano tuning and maintenance services.",
     neighborhoods: [
       "Downtown",
@@ -19,7 +20,7 @@ const locations = [
   {
     name: "Ada",
     slug: "ada",
-
+    image: "/locations/ada.jpg",
     description: "Expert piano services for the Ada community and surrounding areas.",
     neighborhoods: [
       "Ada Village",
@@ -30,7 +31,7 @@ const locations = [
   {
     name: "Rockford",
     slug: "rockford",
-
+    image: "/locations/rockford.jpg",
     description: "Professional piano tuning and repair services in Rockford and nearby communities.",
     neighborhoods: [
       "Rockford City",
@@ -41,7 +42,7 @@ const locations = [
   {
     name: "Kentwood",
     slug: "kentwood",
-
+    image: "/locations/kentwood.jpg",
     description: "Serving Kentwood and surrounding areas with expert piano maintenance.",
     neighborhoods: [
       "East Kentwood",
@@ -52,7 +53,7 @@ const locations = [
   {
     name: "Wyoming",
     slug: "wyoming",
-
+    image: "/locations/wyoming.jpg",
     description: "Comprehensive piano services for the Wyoming community.",
     neighborhoods: [
       "Georgetown",
@@ -63,7 +64,7 @@ const locations = [
   {
     name: "Byron Center",
     slug: "byron-center",
-
+    image: "/locations/byron-center.jpg",
     description: "Professional piano tuning and maintenance in Byron Center and surrounding areas.",
     neighborhoods: [
       "Byron Center Village",
@@ -74,7 +75,7 @@ const locations = [
   {
     name: "Zeeland",
     slug: "zeeland",
-
+    image: "/locations/zeeland-mi.jpg",
     description: "Expert piano services for the Zeeland community.",
     neighborhoods: [
       "Zeeland City",
@@ -110,17 +111,20 @@ export default function Locations() {
                 key={location.slug}
                 className="rounded-2xl border border-border bg-muted/40 overflow-hidden"
               >
-                <div className="relative h-48 bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="size-8 text-primary mx-auto mb-2" />
-                    <span className="text-white/80 font-serif text-lg">{location.name}</span>
-                  </div>
+                <div
+                  className="relative h-48 bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center bg-cover bg-center"
+                  style={location.image ? { backgroundImage: `url(${location.image})` } : undefined}
+                >
                 </div>
                 <div className="p-6">
                   <h2 className="font-serif text-2xl font-medium text-secondary mb-3">
-                    <Link href={`/locations/${location.slug}`} className="text-primary hover:text-primary/80 transition-colors">
-                      {location.name}
-                    </Link>
+                    {location.hasPage ? (
+                      <Link href={`/locations/${location.slug}`} className="text-primary hover:text-primary/80 transition-colors">
+                        {location.name}
+                      </Link>
+                    ) : (
+                      <span className="text-secondary">{location.name}</span>
+                    )}
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-4">{location.description}</p>
                   <div className="mb-4">
@@ -134,13 +138,15 @@ export default function Locations() {
                       ))}
                     </ul>
                   </div>
-                  <Link
-                    href={`/locations/${location.slug}`}
-                    className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
-                  >
-                    Learn more
-                    <ArrowRight className="size-4 ml-2" />
-                  </Link>
+                  {location.hasPage && (
+                    <Link
+                      href={`/locations/${location.slug}`}
+                      className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
+                    >
+                      Learn more
+                      <ArrowRight className="size-4 ml-2" />
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}

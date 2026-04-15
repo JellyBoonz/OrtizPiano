@@ -12,7 +12,7 @@ export function AboutSection() {
             <div className="relative aspect-[4/4] rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/jaiden-headshot.jpeg"
-                alt="Jaiden Ortiz, professional piano tuner in Grand Rapids"
+                alt="Jaiden Ortiz, professional piano tuner in West Michigan"
                 fill
                 unoptimized
                 className="object-cover"

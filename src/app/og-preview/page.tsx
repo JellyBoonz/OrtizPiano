@@ -78,7 +78,7 @@ export default function OgPreviewPage() {
                   className="text-white font-serif leading-[1.1] tracking-tight"
                   style={{ fontSize: 64, fontWeight: 600 }}
                 >
-                  Professional Piano Tuning in Grand Rapids, MI
+                  Professional Piano Tuning in West Michigan
                 </h2>
                 <p
                   className="leading-relaxed"

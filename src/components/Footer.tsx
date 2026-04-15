@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/schedule", label: "Schedule Online" },
-  { href: "/locations", label: "Locations" },
+  { href: "/locations", label: "Areas We Serve" },
 ];
 
 const serviceLinks = [
@@ -126,7 +126,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex items-center justify-center">
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-300">
             &copy; {new Date().getFullYear()} Ortiz Piano Tuning. All rights
             reserved. | <span className="text-white">Designed by{" "}
             <a

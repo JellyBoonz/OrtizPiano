@@ -8,7 +8,7 @@ import { services } from "@/lib/services";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/piano-health-check", label: "Piano Health Check" },
+  { href: "/locations", label: "Areas We Serve" },
   { href: "/about", label: "About Us" },
   { href: "/blog", label: "Blog" },
   { href: "/schedule", label: "Schedule Online" },

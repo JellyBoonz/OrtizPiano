@@ -10,10 +10,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>Ortiz Piano Tuning | Professional Piano Tuning & Repair</title>
+        <title>Professional Piano Tuning and Maintenance in West Michigan | Have a Clean and Beautiful Sounding Piano | Ortiz Piano</title>
         <meta
           name="description"
-          content="Expert piano tuning, repair, and digital keyboard repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, minor repairs, and electronic keyboard diagnostics. Serving musicians, teachers, and families since 2019. Call (616) 229-0630 for a free consultation."
+          content="Expert piano tuning, repair, and digital keyboard repair services in West Michigan. Professional piano technician offering tuning, pitch raises, cleaning, minor repairs, and electronic keyboard diagnostics. Serving musicians, teachers, and families since 2019. Call (616) 229-0630 for a free consultation."
         />
         <meta
           name="keywords"
@@ -33,23 +33,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="service-type" content="piano tuning and repair" />
         <link rel="canonical" href="https://ortizpiano.com" />
         {/* Open Graph Metadata */}
-        <meta property="og:title" content="Ortiz Piano Tuning | Professional Piano Services in Grand Rapids" />
+        <meta property="og:title" content="Ortiz Piano Tuning | Professional Piano Services in West Michigan" />
         <meta
           property="og:description"
-          content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Call (616) 229-0630 for a free consultation."
+          content="Expert piano tuning and repair services in West Michigan. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Call (616) 229-0630 for a free consultation."
         />
         <meta property="og:url" content="https://ortizpiano.com" />
         <meta property="og:site_name" content="Ortiz Piano Tuning" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ortizpiano.com/og-image.png" />
-        <meta property="og:image:alt" content="Professional Piano Tuning Services in Grand Rapids, MI" />
+        <meta property="og:image:alt" content="Professional Piano Tuning Services in West Michigan" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ortiz Piano Tuning | Professional Piano Services in Grand Rapids" />
-        <meta name="twitter:description" content="Expert piano tuning and repair services in Grand Rapids, MI. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Call (616) 229-0630 for a free consultation." />
+        <meta name="twitter:title" content="Ortiz Piano Tuning | Professional Piano Services in West Michigan" />
+        <meta name="twitter:description" content="Expert piano tuning and repair services in West Michigan. Professional piano technician offering tuning, pitch raises, cleaning, and minor repairs. Call (616) 229-0630 for a free consultation." />
         <meta name="twitter:image" content="https://ortizpiano.com/og-image.png" />
         <meta name="twitter:site" content="@ortizpiano" />
         <meta name="twitter:creator" content="@ortizpiano" />

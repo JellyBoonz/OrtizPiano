@@ -8,7 +8,8 @@ const blogPosts = [
     excerpt: "Learn about the recommended tuning schedule for your piano based on usage, climate, and other factors.",
     date: "March 15, 2024",
     readTime: "1 min read",
-    slug: "how-often-should-you-tune-your-piano"
+    slug: "how-often-should-you-tune-your-piano",
+    image: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 2,
@@ -16,7 +17,8 @@ const blogPosts = [
     excerpt: "Protect your piano from Michigan's harsh winter conditions with these essential maintenance tips.",
     date: "March 10, 2024",
     readTime: "1 min read",
-    slug: "piano-maintenance-tips-for-michigan-winters"
+    slug: "piano-maintenance-tips-for-michigan-winters",
+    image: "https://images.unsplash.com/photo-1483137140003-ae073b395549?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ const blogPosts = [
     excerpt: "Learn when and why your piano might need a pitch raise, and what to expect during the process.",
     date: "March 5, 2024",
     readTime: "1 min read",
-    slug: "understanding-piano-pitch-raises"
+    slug: "understanding-piano-pitch-raises",
+    image: "https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
@@ -45,8 +48,16 @@ export default function Blog() {
           {blogPosts.map((post) => (
             <article
               key={post.id}
-              className="rounded-2xl border border-border bg-muted/40 p-6"
+              className="rounded-2xl border border-border bg-muted/40 overflow-hidden flex flex-col"
             >
+              <Link href={`/blog/${post.slug}`} className="block">
+                <div
+                  className="h-48 bg-cover bg-center bg-muted"
+                  style={{ backgroundImage: `url(${post.image})` }}
+                  aria-hidden="true"
+                />
+              </Link>
+              <div className="p-6 flex flex-col flex-1">
               <div className="flex items-center text-sm text-muted-foreground mb-2">
                 <span>{post.date}</span>
                 <span className="mx-2">•</span>
@@ -65,6 +76,7 @@ export default function Blog() {
                 Read more
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
+              </div>
             </article>
           ))}
         </div>

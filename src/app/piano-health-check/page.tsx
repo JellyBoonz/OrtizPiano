@@ -120,7 +120,7 @@ export default function PianoHealthCheck() {
                     A well-maintained piano holds its tone and value over time.
                     The best way to protect what you&apos;ve already invested in
                     is a tuning now, before drift sets in. Jaiden is currently
-                    taking appointments in Grand Rapids.
+                    taking appointments in West Michigan.
                   </p>
                   <Link href="/schedule" className="block">
                     <button className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 text-base px-8 py-4 rounded-full font-medium transition-all">

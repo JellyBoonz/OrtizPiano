@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/home/AboutSection";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { TransformationSection } from "@/components/home/TransformationSection";
+import { LeadMagnetSection } from "@/components/home/LeadMagnetSection";
 import { CTASection } from "@/components/home/CTASection";
 
 export default function Home() {
@@ -12,8 +13,9 @@ export default function Home() {
       <HeroSection />
       <ProblemSection />
       <AboutSection />
-      <ProcessSection />
       <TestimonialsSection />
+      <ProcessSection />
+      <LeadMagnetSection />
       <TransformationSection />
       <CTASection />
     </div>

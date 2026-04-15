@@ -13,7 +13,7 @@ export default function About() {
             About Ortiz Piano Tuning
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Professional piano technician serving Grand Rapids and surrounding areas
+            Professional piano technician serving West Michigan
           </p>
         </div>
       </section>
