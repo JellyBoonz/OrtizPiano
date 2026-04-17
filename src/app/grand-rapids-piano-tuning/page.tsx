@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, ArrowRight, Star, ShieldCheck, Clock } from "lucide-react";
+import { Phone, ArrowRight, Star, ShieldCheck, Clock, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function GrandRapidsLandingPage() {
@@ -67,9 +67,17 @@ export default function GrandRapidsLandingPage() {
               <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
                 Your piano should sound the way it did the day you fell in love with it.
               </h1>
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-10">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-6">
                 Jaiden Ortiz has tuned 1,000+ pianos across West Michigan. He comes to you, evaluates your instrument in person, and makes it sound the way it should.
               </p>
+              <div className="flex justify-center mb-10">
+                <div className="inline-flex items-center gap-2.5 rounded-full border-2 border-primary bg-primary/10 px-5 py-2.5">
+                  <DollarSign className="size-5 text-primary" />
+                  <span className="text-sm md:text-base font-bold text-white">
+                    Piano tuning from $150 · Sound-Right Guarantee · Only 10 slots/week
+                  </span>
+                </div>
+              </div>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/schedule">
                   <Button
@@ -205,6 +213,40 @@ export default function GrandRapidsLandingPage() {
           </div>
         </section>
 
+        {/* Pricing FAQ Section */}
+        <section className="bg-white rounded-3xl border border-border overflow-hidden">
+          <div className="px-8 md:px-16 py-10 md:py-16">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-secondary leading-tight text-center mb-10">
+              Straight answers on pricing
+            </h2>
+            <div className="max-w-2xl mx-auto space-y-4">
+              {[
+                {
+                  q: "How much does a piano tuning cost?",
+                  a: "Piano tuning starts at $150. That includes a full in-home tuning plus free minor repairs (sticking keys, buzzing strings, squeaky pedals) handled on the spot at no extra charge. Final price depends on the condition of your instrument, which Jaiden confirms before starting.",
+                },
+                {
+                  q: "Do you offer an annual plan?",
+                  a: "Yes. The Annual Care Plan is $349 per year. It includes your yearly tuning, free minor repairs, a diagnostic report, a piano valuation estimate, appointment reminders, and day-of ETA notifications. Only 10 tunings are booked per week, so slots are limited.",
+                },
+                {
+                  q: "What if my piano needs a pitch raise?",
+                  a: "Pianos that have gone several years without tuning often need a pitch raise before a standard tuning will hold. Jaiden evaluates your instrument in person and quotes the pitch raise upfront, with no surprises.",
+                },
+                {
+                  q: "What happens if I'm not satisfied?",
+                  a: "Every tuning is backed by the Sound-Right Guarantee. If your piano doesn't sound the way it should after Jaiden's visit, he returns within 14 days and re-tunes it, free. And if he doesn't arrive within the quoted time window, you get $25 off automatically.",
+                },
+              ].map(({ q, a }, i) => (
+                <div key={i} className="rounded-2xl border border-border bg-muted/40 p-6">
+                  <p className="font-medium text-secondary mb-2">{q}</p>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Guarantee Section */}
         <section className="bg-muted rounded-3xl overflow-hidden">
           <div className="px-8 md:px-16 py-10 md:py-16">
@@ -230,10 +272,13 @@ export default function GrandRapidsLandingPage() {
                 <Clock className="size-6 text-white" />
               </div>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-6">
-                Appointments are limited — West Michigan only.
+                Appointments are limited. West Michigan only.
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed mb-4">
-                Get back to the music. Your piano — and everyone who listens — will thank you.
+                Get back to the music. Your piano, and everyone who listens, will thank you.
+              </p>
+              <p className="text-sm font-medium text-primary mb-4">
+                Piano tuning from $150 · Only 10 slots per week · Sound-Right Guarantee
               </p>
               <p className="text-sm text-gray-300 mb-10">
                 Not sure if it&apos;s time?{' '}
